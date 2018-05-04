@@ -1,0 +1,25 @@
+
+body{
+    height: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5{
+    font-family: 'Ubuntu', sans-serif;     
+}
+.nav{
+    font-family: 'Ubuntu', sans-serif;         
+}
+.login{
+    height: 100vh;
+    background-color: #E9EBEE;
+}
+
+.login-form{
+    margin: 0 auto;
+    position: relative;
+    top: 28vh;
+    width: 300px;
+}
