@@ -7,8 +7,8 @@ var PORT = process.env.PORT || 8080;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// require("./app/routes/api-routes")(app);
-// require("./app/routes/html-routes.js")(app);
+require("./routes/api-routes.js")(app);
+require("./routes/html-routes.js")(app);
 
 app.listen(PORT, function () {
     console.log("App listening to PORT: " + PORT);
