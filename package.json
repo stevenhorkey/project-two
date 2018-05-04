@@ -1,0 +1,29 @@
+{
+  "name": "goals-app",
+  "version": "1.0.0",
+  "description": "goals app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stevenhorkey/project-two.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stevenhorkey/project-two/issues"
+  },
+  "homepage": "https://github.com/stevenhorkey/project-two#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.11",
+    "mysql2": "^1.5.3",
+    "passport": "^0.4.0",
+    "path": "^0.12.7",
+    "sequelize": "^4.37.6"
+  }
+}
