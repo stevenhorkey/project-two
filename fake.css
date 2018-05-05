@@ -65,7 +65,7 @@ nav{
     top: 28vh;
     width: 300px;
 }
-/* Profile Page */
+/* Profile */
 .sidebar{
     background-color: white;
     height: 100vh;
@@ -105,3 +105,4 @@ nav{
     font-size: 18px;
     text-decoration: none;
 }
+/* Wall */
