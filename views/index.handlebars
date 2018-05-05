@@ -1,0 +1,128 @@
+<section class="login">
+    <div class="container">
+        <div class="row">
+            <!-- Login Form -->
+            <form id="signin" class="login-form" method="POST" action='/signin'>
+                <h1 id="login-title">Login</h1>
+                <br>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input name="email" type="email" class="form-control" id="email-signin" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input name="password" type="password" class="form-control" id="password-signin" placeholder="Password" required>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Submit">
+                <button class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">Sign Up!</button>
+            </form>
+            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                Launch demo modal
+            </button> -->
+            <!-- Signup Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLongTitle">Sign Up</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="signup" class="needs-validation" name="signup" method="POST" action="/signup" novalidate>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="first-name">First name</label>
+                                    <input type="text" name="first-name" class="form-control" id="f-name-signup" placeholder="First name" required>
+                                    <div class="valid-feedback">
+                                    Looks good!
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="last-name">Last name</label>
+                                    <input type="text" name="last-name" class="form-control" id="l-name-signup" placeholder="Last name" required>
+                                    <div class="valid-feedback">
+                                    Looks good!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" class="form-control" id="email-sinnup" placeholder="Email" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                <label for="username">Username</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                    </div>
+                                    <input type="text" name="username" class="form-control" id="username-signup" placeholder="Username" aria-describedby="inputGroupPrepend" required>
+                                    <div class="invalid-feedback">
+                                    Please choose a username.
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" class="form-control" id="password-signup" placeholder="Password" required>
+                                    <div class="valid-feedback">
+                                    Looks good!
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="confirm-password">Confirm Password</label>
+                                    <input type="password" name="confirm-password" class="form-control" id="conf-password-signup" placeholder="Confirm Password" required>
+                                    <div class="valid-feedback">
+                                    Looks good!
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                <label for="validationCustom06">City</label>
+                                <input type="text" class="form-control" id="validationCustom06" placeholder="City" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid city.
+                                </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                <label for="validationCustom07">State</label>
+                                <input type="text" class="form-control" id="validationCustom07" placeholder="State" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid state.
+                                </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                <label for="validationCustom08">Zip</label>
+                                <input type="text" class="form-control" id="validationCustom08" placeholder="Zip" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                                </div>
+                            </div> -->
+                            <div class="form-group">
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="invalidCheck" required>
+                                <label class="form-check-label" for="invalidCheck">
+                                    Agree to terms and conditions
+                                </label>
+                                <div class="invalid-feedback">
+                                    You must agree before submitting.
+                                </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" type="submit">Submit form</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
