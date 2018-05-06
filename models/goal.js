@@ -1,31 +1,31 @@
 module.exports = function (sequelize, DataTypes) {
-    var Goals = sequlize.define("goal", {
+    var Goal = sequelize.define("Goal", {
         goal_name: {
-            type: DataType.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
             validate: {
                 len: [140]
             }
         },
         goal_description: {
-            type: DataType.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
             validate: {
                 len: [240]
             }
         },
         completed: {
-            type: DataType.BOOLEAN,
+            type: DataTypes.BOOLEAN,
             allowNull: true
         }
     });
 
-    Post.associate = function (models) {
-        Post.belongsTo(models.User, {
+    Goal.associate = function (models) {
+        Goal.belongsTo(models.User, {
             foreignKey: {
                 allowNull: false
             }
         });
     };
-    return Goals;
+    return Goal;
 };
