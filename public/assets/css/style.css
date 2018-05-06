@@ -16,6 +16,9 @@ h5{
     font-family: 'Ubuntu', sans-serif;     
 }
 /* NavBar */
+.bg-primary{
+    background-color: #1ab394 !important;
+}
 nav{
     font-family: 'Ubuntu', sans-serif;  
     color: white;
@@ -80,7 +83,7 @@ nav{
     width: 100%;
 }
 .add-goals{
-    background-color: #157efb;
+    background-color: #1ab394;
     padding: 20px;
     border-radius: 6px;
     position: relative;

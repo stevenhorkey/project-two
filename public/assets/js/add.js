@@ -12,4 +12,4 @@ $('#goal-submit').one('click',function(event){
       console.log('Created new goal');
       location.reload();
     });
- })
+})

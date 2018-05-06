@@ -1,0 +1,7 @@
+<li>
+    <span>
+        <span class="title">{{this.goal_name}}</span>
+        <span class="description">{{this.goal_description}}</span>
+        {{#if completed}}{{else}}<button data-id="{{id}}" class="complete-btn">Completed</button>{{/if}}
+    </span>
+</li>
