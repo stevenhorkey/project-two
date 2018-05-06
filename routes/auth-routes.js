@@ -7,11 +7,11 @@ module.exports = function (app) {
 
 app.get('/auth', authController.signup);
 
-app.get('/profile',isLoggedIn, authController.dashboard);
+app.get('/profile', isLoggedIn, authController.dashboard);
 
 app.get('/wall', isLoggedIn, authController.wall);
 
-app.get('/logout',authController.logout);
+app.get('/logout', authController.logout);
 
 //app.get('/signup', authController.authorization);
 
