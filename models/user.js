@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
     var User = sequelize.define("User", {
         firstName: {
             type: DataTypes.STRING,
@@ -23,5 +23,14 @@ module.exports = function(sequelize, DataTypes) {
             }
         }
     });
+
+    {
+    User.associate = function (models) {
+        User.hasMany(models.Goals, {
+            onDelete: "cascade"
+        });
+    }
+    };
+
     return User;
-  };
+};
