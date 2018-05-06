@@ -29,14 +29,14 @@ app.set("view engine", "handlebars");
 require("./routes/api-routes")(app);
 require("./routes/html-routes")(app);
 
-var authRoute = require('./routes/auth-routes.js')(app,passport);
+var authRoute = require('./routes/auth-routes.js')(app, passport);
 require('./routes/auth-routes')(app);
 
 
 require('./config/passport/passport.js')(passport, db.User);
 
-db.sequelize.sync({}).then(function() {
-    app.listen(PORT, function() {
-      console.log("App listening on PORT " + PORT);
-    });
+db.sequelize.sync({ force: true }).then(function () {
+  app.listen(PORT, function () {
+    console.log("App listening on PORT " + PORT);
+  });
 });
