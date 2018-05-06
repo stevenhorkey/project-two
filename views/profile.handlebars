@@ -14,11 +14,16 @@
                 <div>
                     <input type="text" class="form-control" id="goal-input" placeholder="input goal...">
                     <button id="goal-submit" type="button" class="btn btn-secondary">Submit</button>
-                </div>
-                
+                </div>   
             </form>
             <div class="my-goals">
-
+                <ul>
+                    {{#each goals}}
+                        {{#unless completed}}
+                        {{> goals/goal-block completed=false}}
+                        {{/unless}}
+                    {{/each}}
+                </ul>
             </div>
         </section>
     </div>
