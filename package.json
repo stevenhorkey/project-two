@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/stevenhorkey/project-two#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
@@ -24,6 +25,7 @@
     "handlebars": "^4.0.11",
     "mysql2": "^1.5.3",
     "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "sequelize": "^4.37.6"
   }
