@@ -15,9 +15,14 @@ h4,
 h5{
     font-family: 'Ubuntu', sans-serif;     
 }
+ul{
+    list-style: none;
+    padding: 0;
+}
 /* NavBar */
 .bg-primary{
     background-color: #1ab394 !important;
+    border: #1ab394 solid 1px;
 }
 nav{
     font-family: 'Ubuntu', sans-serif;  
@@ -46,7 +51,7 @@ nav{
     position: absolute;
     right: -16px;
     left: auto;
-    top:45px;
+    top:46px;
     border-radius: 0 0 .25rem .25rem;
 }
 /* Font-Awesome Icons */
@@ -68,7 +73,7 @@ nav{
     top: 28vh;
     width: 300px;
 }
-/* Profile */
+/* Sidebar */
 .sidebar{
     background-color: white;
     height: 100vh;
@@ -79,6 +84,19 @@ nav{
     text-align: center;
     font-family: 'Ubuntu', sans-serif;     
 }
+.profile-pic{
+    border-radius: 150px;
+}
+.sidebar-list{
+    list-style: none;
+    padding: 0;
+}
+.sidebar-list>li{
+    margin: 16px 0;
+    font-size: 18px;
+    text-decoration: none;
+}
+/* Profile */
 .goals{
     width: 100%;
 }
@@ -99,13 +117,35 @@ nav{
     right: 20px;
     border-radius: 0 4px 4px 0;
 }
-.sidebar-list{
-    list-style: none;
-    padding: 0;
+
+.my-goals{
+    position: relative;
+    top: 50px;
+    background-color: #1ab394;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-family: 'Ubuntu', sans-serif;  
+    
 }
-.sidebar-list>li{
-    margin: 16px 0;
-    font-size: 18px;
-    text-decoration: none;
+.my-goals>ul{
+    padding: 6px;
+}
+.my-goals-list{
+    background-color: white;
+    border-radius: 6px;
+    padding: 8px 10px;
+    margin: 10px 0;
+}
+.goal-title{
+    font-weight: bold;
+    font-size: 24px;
+}
+.goal-description{
+    color: grey;
+    font-size: 24px;
+}
+.fa-check-circle{
+    font-size: 24px;
+    margin-right: 5px;
 }
 /* Wall */

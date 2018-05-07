@@ -4,14 +4,14 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.TEXT,
             allowNull: false,
             validate: {
-                len: [140]
+                len: [1,140]
             }
         },
         goal_description: {
             type: DataTypes.TEXT,
             allowNull: false,
             validate: {
-                len: [240]
+                len: [1,240]
             }
         },
         completed: {

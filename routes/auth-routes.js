@@ -39,7 +39,17 @@ function isLoggedIn(req, res, next) {
     res.redirect('/auth');
  
 }
+app.get('/api/user_data', function(req, res) {
 
+    if (req.user === undefined) {
+        // The user is not logged in
+        res.json({});
+    } else {
+        res.json({
+            userId: req.user.id
+        });
+    }
+});
 }
 
 

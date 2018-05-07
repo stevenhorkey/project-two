@@ -1,7 +1,8 @@
-<li>
+<li class="my-goals-list">
     <span>
-        <span class="title">{{this.goal_name}}</span>
-        <span class="description">{{this.goal_description}}</span>
-        {{#if completed}}{{else}}<button data-id="{{id}}" class="complete-btn">Completed</button>{{/if}}
+        {{#if completed}}{{else}}<i data-id="{{id}}" class="far fa-check-circle"> </i>{{/if}}
+        <span class="goal-title">{{this.dataValues.goal_name}}</span> 
+        <span class="goal-description float-right">{{this.dataValues.goal_description}}</span>
+        
     </span>
 </li>
