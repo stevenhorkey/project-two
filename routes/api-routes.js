@@ -1,8 +1,10 @@
 var db = require("../models");
+//var passport = require('passport');
+var authController = require('../controllers/authcontroller.js');
 
 module.exports = function (app) {
 
-    app.get("/profile", function(req, res) {
+    app.get("/profile", isLoggedIn, function(req, res) {
         db.Goal.findAll({}).then(function(dbGoal) {
             var hbObject = {
                 goals : dbGoal
@@ -50,3 +52,13 @@ module.exports = function (app) {
     });
 
 };
+
+function isLoggedIn(req, res, next) {
+ 
+    if (req.isAuthenticated())
+     
+        return next();
+         
+    res.redirect('/auth');
+ 
+}
