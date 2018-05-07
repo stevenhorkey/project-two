@@ -1,8 +1,8 @@
 <div class="my-profile">
     <div class="container">
         <section class="sidebar float-left col-md-3">
-            <div>
-                <img  class="profile-pic" src="https://amp.businessinsider.com/images/5acd1fe84d0386a9008b5052-750-500.jpg" width="200px">
+            <div class="img-wrap">
+                <img  class="profile-pic" src="https://media4.s-nbcnews.com/j/newscms/2017_32/2097071/trump_mad_0d61c278f7c78f32989996b5440ebc8a.1024;768;7;70;3.jpg">
             </div>
             <ul class="sidebar-list">
                 <li><a href="/wall"><i class="far fa-clipboard"></i> My Wall</a></li>
@@ -15,19 +15,40 @@
         <section class="goals float-right col-md-9">
             <form class="add-goals">
                 <div>
-                    <input type="text" class="form-control" id="goal-input" placeholder="input goal...">
-                    <button id="goal-submit" type="submit" class="btn btn-secondary">Submit</button>
+                    <input type="text" class="form-control" id="goal-name-input" placeholder="input goal title...">
+                    <input type="text" class="form-control" id="goal-description-input" placeholder="input goal description...">
+                    <button id="goal-submit" type="submit" class="btn btn-secondary">Add New Goal</button>
                 </div>   
             </form>
-            <div class="my-goals">
-                <ul>
-                    {{#each goals}}
-                        {{#unless completed}}
-                        {{> goals/goal-block completed=false}}
-                        {{/unless}}
-                    {{/each}}
-                </ul>
-            </div>
+
+            {{#unless True}}
+                <div class="my-goals">
+                    <h3 class="goal-headings">Current Goals</h3>
+                    <ul>
+                        {{#each goals}}
+                            {{#unless completed}}
+                            {{> goals/goal-block completed=false}}
+                            {{/unless}}
+                        {{/each}}
+                    </ul>
+                </div>
+            {{/unless}}
+            <br>
+            {{#unless True}}
+                <div class="my-goals-completed">
+                    <span>
+                        <h3 class="goal-headings d-inline">Completed Goals</h3>
+                        <button id="del-completed-goals" class="btn btn-primary bg-primary float-right">Delete all Completed Goals</button>
+                    </span>
+                    <ul>
+                        {{#each goals}}
+                            {{#if completed}}
+                            {{> goals/goal-block completed=true}}
+                            {{/if}}
+                        {{/each}}
+                    </ul>
+                </div>
+            {{/unless}}
         </section>
     </div>
 </div>

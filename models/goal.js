@@ -9,9 +9,9 @@ module.exports = function (sequelize, DataTypes) {
         },
         goal_description: {
             type: DataTypes.TEXT,
-            allowNull: false,
+            allowNull: true,
             validate: {
-                len: [1,240]
+                len: [0,240]
             }
         },
         completed: {

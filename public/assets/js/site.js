@@ -35,8 +35,8 @@ $( document ).ready(function() {
         console.log('add clicked')
         var newGoal = {
             UserId : userId,
-            goal_name: 'hehe',
-            goal_description: $('#goal-input').val().trim(),
+            goal_name: $('#goal-name-input').val().trim(),
+            goal_description: $('#goal-description-input').val().trim(),
             completed : false
         }
         $.ajax('/api/goals',{
@@ -46,6 +46,44 @@ $( document ).ready(function() {
         function(){
         console.log('Created new goal');
         location.reload();
+        });
+    })
+    $('.my-goals-list').on('click',function(event){
+        event.preventDefault();
+        var id = $(this).data('id');
+
+        console.log('Goal clicked: '+id)
+        var toggleBool = {
+            completed : true
+        }
+        $.ajax('/api/goals/'+id,{
+            type:'PUT',
+            data: toggleBool
+        }).then(
+        function(){
+        location.reload();
+        });
+    })
+    $('#del-completed-goals').on('click',function(event){
+        event.preventDefault();
+
+        console.log('Goal deleted')
+        $.ajax('/api/goals/',{
+            type:'DELETE',
+        }).then(
+        function(){
+            location.reload();
+        });
+    })
+    $('.fa-trash-alt').on('click',function(event){
+        event.preventDefault();
+        var id = $(this).data('id');
+        console.log('Goal deleted:'+id)
+        $.ajax('/api/goals/'+id,{
+            type:'DELETE',
+        }).then(
+        function(){
+            // location.reload();
         });
     })
 });
