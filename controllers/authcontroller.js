@@ -2,35 +2,44 @@ var exports = module.exports = {}
 
 //This file is essentially a model page for which handlebars files to render for 
 //our authentication and includes a logout function
- 
-exports.signup = function(req, res) {
- 
+
+exports.signup = function (req, res) {
+
     res.render('index');
- 
+
 }
 
-exports.signin = function(req, res) {
- 
+exports.signin = function (req, res) {
+
     res.render('index');
- 
+
 }
 
-exports.dashboard = function(req, res) {
- 
+exports.dashboard = function (req, res) {
+
     res.render('profile');
- 
+
 }
 
-exports.wall = function(req, res) {
+exports.wall = function (req, res) {
     res.render('wall');
 }
 
-exports.logout = function(req, res) {
+exports.logout = function (req, res) {
     //This ends the current user session which is key to authentication
-    req.session.destroy(function(err) {
+    req.session.destroy(function (err) {
         //sends user back to the signup/login page
         res.render('index');
- 
+
     });
- 
+
+}
+
+exports.search = function (req, res) {
+
+    req.session.destroy(function (err) {
+
+        res.render('search');
+
+    });
 }

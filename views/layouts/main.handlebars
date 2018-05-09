@@ -13,20 +13,21 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500" rel="stylesheet">
   <!-- Custom CSS -->
-  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
   <!-- JQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Bootstrap JS -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
     crossorigin="anonymous"></script>
-  <script src="./assets/js/site.js"></script>
-  <script src="./assets/js/add.js"></script>
+  <script src="/assets/js/site.js"></script>
+  <script src="/assets/js/add.js"></script>
+  <script src="/assets/js/search.js"></script>
 </head>
 
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="/">GoalPost</a>
+    <a class="navbar-brand" href="/profile">GoalPost</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -43,8 +44,8 @@
           <a class="nav-link" href="#">
             <i class="fas fa-search"></i>Search</a>
         </li>
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input class="form-control mr-sm-2" id="search-input" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search">Search</button>
         <li class="nav-item">
           <a class="nav-link" href="#">
             <i class="far fa-plus-square"></i> Create</a>
