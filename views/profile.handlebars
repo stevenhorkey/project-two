@@ -38,16 +38,21 @@
                 </ul>
             </div>
             {{/unless}}
-            <br> {{#unless True}}
-            <div class="my-goals-completed">
-                <span>
-                    <h3 class="goal-headings d-inline">Completed Goals</h3>
-                    <button id="del-completed-goals" class="btn btn-primary bg-primary float-right">Delete all Completed Goals</button>
-                </span>
-                <ul>
-                    {{#each goals}} {{#if completed}} {{> goals/goal-block completed=true}} {{/if}} {{/each}}
-                </ul>
-            </div>
+            <br>
+            {{#unless True}}
+                <div class="my-goals-completed">
+                    <span>
+                        <h3 class="goal-headings d-inline">Completed Goals</h3>
+                        <button id="del-completed-goals" class="btn float-right">Delete all Completed Goals</button>
+                    </span>
+                    <ul>
+                        {{#each goals}}
+                            {{#if completed}}
+                            {{> goals/goal-block completed=true}}
+                            {{/if}}
+                        {{/each}}
+                    </ul>
+                </div>
             {{/unless}}
         </section>
     </div>
