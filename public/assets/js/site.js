@@ -30,7 +30,7 @@ $( document ).ready(function() {
             userId = data.userId;
         }
     });
-
+    console.log(userId);
     $('#goal-submit').on('click',function(event){
         event.preventDefault();
         console.log('add clicked')
