@@ -2,14 +2,20 @@
     <div class="container">
         <section class="sidebar float-left col-md-3">
             <div class="img-wrap">
-                <img  class="profile-pic" src="{{users.image}}">
+                <img class="profile-pic" src="{{users.image}}">
             </div>
             <br>
             <h3>{{users.userName}}</h3>
             <br>
             <ul class="sidebar-list">
-                <li><a href="/wall"><i class="far fa-clipboard"></i> My Wall</a></li>
-                <li><a href="/profile"><i class="far fa-calendar-check"></i> My Goals</a></li>
+                <li>
+                    <a href="/wall">
+                        <i class="far fa-clipboard"></i> My Wall</a>
+                </li>
+                <li>
+                    <a href="/profile">
+                        <i class="far fa-calendar-check"></i> My Goals</a>
+                </li>
                 <li></li>
                 <li></li>
                 <li></li>
@@ -21,20 +27,16 @@
                     <input type="text" class="form-control" id="goal-name-input" placeholder="input goal title...">
                     <input type="text" class="form-control" id="goal-description-input" placeholder="input goal description...">
                     <button id="goal-submit" type="submit" class="btn btn-secondary">Add New Goal</button>
-                </div>   
+                </div>
             </form>
 
             {{#unless True}}
-                <div class="my-goals">
-                    <h3 class="goal-headings">Current Goals</h3>
-                    <ul>
-                        {{#each goals}}
-                            {{#unless completed}}
-                            {{> goals/goal-block completed=false}}
-                            {{/unless}}
-                        {{/each}}
-                    </ul>
-                </div>
+            <div class="my-goals">
+                <h3 class="goal-headings">Current Goals</h3>
+                <ul>
+                    {{#each goals}} {{#unless completed}} {{> goals/goal-block completed=false}} {{/unless}} {{/each}}
+                </ul>
+            </div>
             {{/unless}}
             <br>
             {{#unless True}}
@@ -55,4 +57,3 @@
         </section>
     </div>
 </div>
-

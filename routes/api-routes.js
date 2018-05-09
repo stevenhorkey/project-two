@@ -23,7 +23,7 @@ module.exports = function (app) {
             }
         }).then(function (dbGoal) {
             var hbObject = {
-                goals : dbGoal,
+                goals: dbGoal,
                 users: req.user
             };
             console.log(hbObject.goals)
@@ -32,9 +32,8 @@ module.exports = function (app) {
 
     });
 
-    
+
     app.get("/search/:name", (req, res) => {
-        console.log("working ++++" + req.params.name)
         db.User.findAll({
             where: {
                 firstName: req.params.name
@@ -43,7 +42,6 @@ module.exports = function (app) {
             let hbObject = {
                 users: dbUser
             };
-            console.log(dbUser[0].id);
             res.render("search", hbObject);
         })
     })
@@ -68,28 +66,28 @@ module.exports = function (app) {
             res.json(dbGoal);
         });
     });
-    app.delete("/api/goals", function(req, res) {
+    app.delete("/api/goals", function (req, res) {
         console.log(req.user.id);
         db.Goal.destroy({
-          where: {
-            UserId: req.user.id,
-            completed: true
-          }
-        }).then(function(dbGoal) {
-          res.json(dbGoal);
+            where: {
+                UserId: req.user.id,
+                completed: true
+            }
+        }).then(function (dbGoal) {
+            res.json(dbGoal);
         });
     });
     //The delete call removes a goal from the goal list in the profile page. This completely removes it from the table
     //and then sends Json data
-    app.delete("/api/goals/:id", function(req, res) {
+    app.delete("/api/goals/:id", function (req, res) {
         db.Goal.destroy({
-          where: {
-              //id of goal
-            id: req.params.id
-          }
-        }).then(function(dbGoal) {
-        
-          res.json(dbGoal);
+            where: {
+                //id of goal
+                id: req.params.id
+            }
+        }).then(function (dbGoal) {
+
+            res.json(dbGoal);
         });
     });
 }
