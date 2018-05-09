@@ -1,14 +1,18 @@
 var bCrypt = require('bcrypt-nodejs');
 
 module.exports = function(passport, user) {
+//sets the User variable to equal the current user in session
  var User = user;
  console.log(User);
+ //This is the strategy we will be using, this is installed ed as an npm package
  var LocalStrategy = require('passport-local').Strategy;
+ //This is set for later use
  var userId;
 
  passport.use('local-signup', new LocalStrategy(
  
     {
+        //'email' and 'password' are ids in the signup form
         usernameField: 'email',
         passwordField: 'password',
         passReqToCallback: true // allows us to pass back the entire request to the callback
@@ -17,15 +21,17 @@ module.exports = function(passport, user) {
 
     function(req, email, password, done) {
         var generateHash = function(password) {
- 
+            //This handles the encryption of the users password
             return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
          
         };
-
+        //Sequelize function
         User.findOne({
             where: {
+                //finds user based on email
                 email: email
             }
+        //This then function ensures that if there is already a matching email, the account cant be created
         }).then(function(user) {
          
             if (user)
@@ -39,9 +45,9 @@ module.exports = function(passport, user) {
             } else
          
             {
-         
+                //runs userPassword thorugh encryption
                 var userPassword = generateHash(password);
-         
+         //These are the entries for the database
                 var data =
          
                     {
@@ -57,7 +63,7 @@ module.exports = function(passport, user) {
          
                     };
          
-         
+                //pass the entries into a create Sequelize fuction
                 User.create(data).then(function(newUser, created) {
          
                     if (!newUser) {
@@ -99,13 +105,14 @@ passport.use('local-signin', new LocalStrategy(
     function(req, email, password, done) {
  
         var User = user;
- 
+        
+        //function checks if the password in the database matches the user-inputted password to login
         var isValidPassword = function(userpass, password) {
  
             return bCrypt.compareSync(password, userpass);
  
         }
- 
+        //Sequelize function to find matching email in the Users table
         User.findOne({
             where: {
                 email: email
@@ -113,26 +120,26 @@ passport.use('local-signin', new LocalStrategy(
         }).then(function(user) {
  
             if (!user) {
- 
+                //if there is no matching email in the Users table do not allow login and alert the user
                 return done(null, false, {
                     message: 'Email does not exist'
                 });
  
             }
- 
+            
             if (!isValidPassword(user.password, password)) {
- 
+                //if the password does not match the database password, do not let user log in and alert them
                 return done(null, false, {
                     message: 'Incorrect password.'
                 });
  
             }
  
- 
+            
             var userinfo = user.get();
             return done(null, userinfo);
  
- 
+            //Error Handling
         }).catch(function(err) {
  
             console.log("Error:", err);
@@ -162,8 +169,8 @@ passport.deserializeUser(function(id, done) {
         if (user) {
  
             done(null, user.get());
-            console.log(id);
-            userId = id;
+            // console.log(id);
+            // userId = id;
 
         } else {
  

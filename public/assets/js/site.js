@@ -25,6 +25,7 @@ $( document ).ready(function() {
     $.getJSON("api/user_data", function(data) {
         // Make sure the data contains the username as expected before using it
         if (data.hasOwnProperty('userId')) {
+            console.log(data);
             console.log('User id: ' + data.userId);
             userId = data.userId;
         }
@@ -67,9 +68,14 @@ $( document ).ready(function() {
     $('#del-completed-goals').on('click',function(event){
         event.preventDefault();
 
+        var goalsUserId = {
+            user: userId
+        }
+
         console.log('Goal deleted')
         $.ajax('/api/goals/',{
             type:'DELETE',
+            data: goalsUserId
         }).then(
         function(){
             location.reload();
@@ -86,4 +92,9 @@ $( document ).ready(function() {
             // location.reload();
         });
     })
+
+    module.exports = {
+        user: userId
+    }
 });
+

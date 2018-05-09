@@ -1,4 +1,7 @@
 var exports = module.exports = {}
+
+//This file is essentially a model page for which handlebars files to render for 
+//our authentication and includes a logout function
  
 exports.signup = function(req, res) {
  
@@ -23,9 +26,9 @@ exports.wall = function(req, res) {
 }
 
 exports.logout = function(req, res) {
- 
+    //This ends the current user session which is key to authentication
     req.session.destroy(function(err) {
- 
+        //sends user back to the signup/login page
         res.render('index');
  
     });
