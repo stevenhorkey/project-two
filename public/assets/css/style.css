@@ -55,6 +55,12 @@ nav{
     top:46px;
     border-radius: 0 0 .25rem .25rem;
 }
+#nav-profile-image{
+    width: 50px;
+    border-radius: 50%;
+    margin: 0 10px;
+    border: 1px solid #0e6b58;
+}
 /* Font-Awesome Icons */
 .fas{
     margin: 0 8px;
@@ -92,7 +98,7 @@ nav{
     width: 80%;
     margin: 0 auto;
     border-radius: 50%;
-    border: 2px grey solid;
+    border: 2px #0e6b58 solid;
     padding: 2px;
 }
 .sidebar-list{

@@ -23,68 +23,73 @@ module.exports = function (app) {
             }
         }).then(function (dbGoal) {
             var hbObject = {
-                goals: dbGoal
+                goals: dbGoal,
+                users: req.user
             };
-            console.log(hbObject)
+            console.log(hbObject.goals)
             res.render("profile", hbObject);
         });
 
-        app.get("/search/:name", (req, res) => {
-            console.log("working ++++" + req.params.name)
-            db.User.findAll({
-                where: {
-                    firstName: req.params.name
-                }
-            }).then(dbUser => {
-                let hbObject = {
-                    users: dbUser
-                };
-                res.render("search", hbObject);
-            })
+    });
+
+
+    app.get("/search/:name", (req, res) => {
+        console.log("working ++++" + req.params.name)
+        db.User.findAll({
+            where: {
+                firstName: req.params.name
+            }
+        }).then(dbUser => {
+            let hbObject = {
+                users: dbUser
+            };
+            console.log(dbUser[0].id);
+            res.render("search", hbObject);
         })
+    })
 
-        app.post("/api/goals", function (req, res) {
-            var newGoal = req.body;
-            newGoal['UserId'] = req.user.id
-            db.Goal.create(newGoal).then(function (dbGoal) {
-                res.json(dbGoal);
-            });
+    app.post("/api/goals", function (req, res) {
+        var newGoal = req.body;
+        newGoal['UserId'] = req.user.id
+        db.Goal.create(newGoal).then(function (dbGoal) {
+            res.json(dbGoal);
         });
-        app.put("/api/goals/:id", function (req, res) {
+    });
+    app.put("/api/goals/:id", function (req, res) {
 
-            db.Goal.update(
-                req.body,
-                {
-                    where: {
-                        id: req.params.id
-                    }
-                }
-            ).then(function (dbGoal) {
-                res.json(dbGoal);
-            });
-        });
-        app.delete("/api/goals/", function (req, res) {
-            db.Goal.destroy({
+        db.Goal.update(
+            req.body,
+            {
                 where: {
-                    UserId: req.body.user,
-                    completed: true
-                }
-            }).then(function (dbGoal) {
-                res.json(dbGoal);
-            });
-        });
-        //The delete call removes a goal from the goal list in the profile page. Thos completely removes it from the table
-        //and then sends Json data
-        app.delete("/api/goals/:id", function (req, res) {
-            db.Goal.destroy({
-                where: {
-                    //id of goal
                     id: req.params.id
                 }
-            }).then(function (dbGoal) {
-
-                res.json(dbGoal);
-            });
+            }
+        ).then(function (dbGoal) {
+            res.json(dbGoal);
         });
-    })
+    });
+    app.delete("/api/goals", function (req, res) {
+        console.log(req.user.id);
+        db.Goal.destroy({
+            where: {
+                UserId: req.user.id,
+                completed: true
+            }
+        }).then(function (dbGoal) {
+            res.json(dbGoal);
+        });
+    });
+    //The delete call removes a goal from the goal list in the profile page. This completely removes it from the table
+    //and then sends Json data
+    app.delete("/api/goals/:id", function (req, res) {
+        db.Goal.destroy({
+            where: {
+                //id of goal
+                id: req.params.id
+            }
+        }).then(function (dbGoal) {
+
+            res.json(dbGoal);
+        });
+    });
 }

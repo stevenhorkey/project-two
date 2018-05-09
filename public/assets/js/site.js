@@ -23,18 +23,16 @@ $(document).ready(function () {
         event.preventDefault();
     });
 
-
-    $.getJSON("api/user_data", function (data) {
-        // Make sure the data contains the username as expected before using it
-        if (data.hasOwnProperty('userId')) {
-            console.log(data);
-            console.log('User id: ' + data.userId);
-            userId = data.userId;
-        }
-    });
-
-    $('#goal-submit').on('click', function (event) {
-
+    // var userId;
+    // $.getJSON("api/user_data", function(data) {
+    //     // Make sure the data contains the username as expected before using it
+    //     if (data.hasOwnProperty('userId')) {
+    //         console.log(data);
+    //         console.log('User id: ' + data.userId);
+    //         userId = data.userId;
+    //     }
+    // });
+    $('#goal-submit').on('click',function(event){
         event.preventDefault();
         console.log('add clicked', userId)
         var newGoal = {
@@ -52,7 +50,7 @@ $(document).ready(function () {
                 location.reload();
             });
     })
-    $('.my-goals-list').on('click', function (event) {
+    $('.fa-circle').on('click',function(event){
         event.preventDefault();
         var id = $(this).data('id');
 
@@ -64,21 +62,16 @@ $(document).ready(function () {
             type: 'PUT',
             data: toggleBool
         }).then(
-            function () {
-                location.reload();
-            });
+        function(){
+            location.reload();
+        });
     })
     $('#del-completed-goals').on('click', function (event) {
         event.preventDefault();
 
-        var goalsUserId = {
-            user: userId
-        }
-
         console.log('Goal deleted')
-        $.ajax('/api/goals/', {
-            type: 'DELETE',
-            data: goalsUserId
+        $.ajax('/api/goals/',{
+            type:'DELETE',
         }).then(
             function () {
                 location.reload();
@@ -91,9 +84,9 @@ $(document).ready(function () {
         $.ajax('/api/goals/' + id, {
             type: 'DELETE',
         }).then(
-            function () {
-                // location.reload();
-            });
+        function(){
+            location.reload();
+        });
     })
 
 });

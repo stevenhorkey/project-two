@@ -51,16 +51,14 @@
             <i class="far fa-plus-square"></i> Create</a>
         </li>
       </ul>
-      <!-- Search Bar -->
       <form class="form-inline my-2 my-lg-0">
         <li class="nav-item dropdown profile-drop">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            <i class="fas fa-user-circle"></i>{{this.dataValues.username}}
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img id="nav-profile-image" src="{{users.image}}">My Profile
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Profile Settings</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/logout">Log Out</a>
           </div>
