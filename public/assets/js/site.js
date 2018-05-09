@@ -23,7 +23,6 @@ $(document).ready(function () {
         event.preventDefault();
     });
 
-<<<<<<< HEAD
     // var userId;
     // $.getJSON("api/user_data", function(data) {
     //     // Make sure the data contains the username as expected before using it
@@ -34,20 +33,6 @@ $(document).ready(function () {
     //     }
     // });
     $('#goal-submit').on('click',function(event){
-=======
-
-    $.getJSON("api/user_data", function (data) {
-        // Make sure the data contains the username as expected before using it
-        if (data.hasOwnProperty('userId')) {
-            console.log(data);
-            console.log('User id: ' + data.userId);
-            userId = data.userId;
-        }
-    });
-
-    $('#goal-submit').on('click', function (event) {
-
->>>>>>> 9d7883ee323b20d43a561f763cc3296e71c6423f
         event.preventDefault();
         console.log('add clicked', userId)
         var newGoal = {
@@ -65,11 +50,7 @@ $(document).ready(function () {
                 location.reload();
             });
     })
-<<<<<<< HEAD
     $('.fa-circle').on('click',function(event){
-=======
-    $('.my-goals-list').on('click', function (event) {
->>>>>>> 9d7883ee323b20d43a561f763cc3296e71c6423f
         event.preventDefault();
         var id = $(this).data('id');
 
@@ -81,28 +62,16 @@ $(document).ready(function () {
             type: 'PUT',
             data: toggleBool
         }).then(
-<<<<<<< HEAD
         function(){
             location.reload();
         });
-=======
-            function () {
-                location.reload();
-            });
->>>>>>> 9d7883ee323b20d43a561f763cc3296e71c6423f
     })
     $('#del-completed-goals').on('click', function (event) {
         event.preventDefault();
 
         console.log('Goal deleted')
-<<<<<<< HEAD
         $.ajax('/api/goals/',{
             type:'DELETE',
-=======
-        $.ajax('/api/goals/', {
-            type: 'DELETE',
-            data: goalsUserId
->>>>>>> 9d7883ee323b20d43a561f763cc3296e71c6423f
         }).then(
             function () {
                 location.reload();
@@ -115,15 +84,9 @@ $(document).ready(function () {
         $.ajax('/api/goals/' + id, {
             type: 'DELETE',
         }).then(
-<<<<<<< HEAD
         function(){
             location.reload();
         });
-=======
-            function () {
-                // location.reload();
-            });
->>>>>>> 9d7883ee323b20d43a561f763cc3296e71c6423f
     })
 
 });

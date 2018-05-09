@@ -17,17 +17,11 @@
   <!-- JQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Bootstrap JS -->
-<<<<<<< HEAD
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-  <script src="/assets/js/site.js"></script>
-  <script src="/assets/js/add.js"></script>
-=======
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
     crossorigin="anonymous"></script>
   <script src="/assets/js/site.js"></script>
   <script src="/assets/js/add.js"></script>
   <script src="/assets/js/search.js"></script>
->>>>>>> 9d7883ee323b20d43a561f763cc3296e71c6423f
 </head>
 
 <body>
@@ -50,13 +44,8 @@
           <a class="nav-link" href="#">
             <i class="fas fa-search"></i>Search</a>
         </li>
-<<<<<<< HEAD
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-=======
         <input class="form-control mr-sm-2" id="search-input" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search">Search</button>
->>>>>>> 9d7883ee323b20d43a561f763cc3296e71c6423f
         <li class="nav-item">
           <a class="nav-link" href="#">
             <i class="far fa-plus-square"></i> Create</a>
@@ -64,14 +53,8 @@
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <li class="nav-item dropdown profile-drop">
-<<<<<<< HEAD
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img id="nav-profile-image" src="{{users.image}}">My Profile
-=======
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            <i class="fas fa-user-circle"></i>{{this.dataValues.username}}
->>>>>>> 9d7883ee323b20d43a561f763cc3296e71c6423f
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Action</a>
@@ -86,123 +69,5 @@
   </nav>
   {{{ body }}}
 </body>
-<<<<<<< HEAD
-</html>
-
-<!-- Signup Modal -->
-{{!-- <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-        <h2 class="modal-title" id="sign-up-title">Sign Up</h2>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        </div>
-        <div class="modal-body">
-            <form id="signup" class="needs-validation" name="signup" method="POST" action="/signup" novalidate>
-                <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                        <label for="firstname">First name</label>
-                        <input type="text" name="firstname" class="form-control" id="f-name-signup" placeholder="First name" required>
-                        <div class="valid-feedback">
-                        Looks good!
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="last-name">Last name</label>
-                        <input type="text" name="lastname" class="form-control" id="l-name-signup" placeholder="Last name" required>
-                        <div class="valid-feedback">
-                        Looks good!
-                        </div>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" class="form-control" id="email-signup" placeholder="Email" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                    <label for="username">Username</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        </div>
-                        <input type="text" name="username" class="form-control" id="username-signup" placeholder="Username" aria-describedby="inputGroupPrepend" required>
-                        <div class="invalid-feedback">
-                        Please choose a username.
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" class="form-control" id="password-signup" placeholder="Password" required>
-                        <div class="valid-feedback">
-                        Looks good!
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="confirm-password">Confirm Password</label>
-                        <input type="password" name="confirm-password" class="form-control" id="conf-password-signup" placeholder="Confirm Password" required>
-                        <div class="valid-feedback">
-                        Looks good!
-                        </div>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-xs-12 mb-3">
-                        <label for="profile-image">Profile Picture</label>
-                        <input type="text" name="profile-image" class="form-control" id="image-signup" placeholder="Password">
-                        <div class="valid-feedback">
-                        Looks good!
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                    <label for="validationCustom06">City</label>
-                    <input type="text" class="form-control" id="validationCustom06" placeholder="City" required>
-                    <div class="invalid-feedback">
-                        Please provide a valid city.
-                    </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                    <label for="validationCustom07">State</label>
-                    <input type="text" class="form-control" id="validationCustom07" placeholder="State" required>
-                    <div class="invalid-feedback">
-                        Please provide a valid state.
-                    </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                    <label for="validationCustom08">Zip</label>
-                    <input type="text" class="form-control" id="validationCustom08" placeholder="Zip" required>
-                    <div class="invalid-feedback">
-                        Please provide a valid zip.
-                    </div>
-                    </div>
-                </div> -->
-                <div class="form-group">
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="invalidCheck" required>
-                    <label class="form-check-label" for="invalidCheck">
-                        Agree to terms and conditions
-                    </label>
-                    <div class="invalid-feedback">
-                        You must agree before submitting.
-                    </div>
-                    </div>
-                </div>
-                <button class="btn btn-primary bg-primary" type="submit">Submit form</button>
-            </form>
-        </div>
-    </div>
-</div> --}}
-=======
 
 </html>
->>>>>>> 9d7883ee323b20d43a561f763cc3296e71c6423f
