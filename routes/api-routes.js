@@ -29,8 +29,9 @@ module.exports = function (app) {
             res.render("profile", hbObject);
         });
     app.post("/api/goals", function(req, res) {
-        
-        db.Goal.create(req.body).then(function(dbGoal) {
+        var newGoal = req.body;
+        newGoal['UserId'] = req.user.id
+        db.Goal.create(newGoal).then(function(dbGoal) {
             res.json(dbGoal);
         });
     });

@@ -35,7 +35,7 @@ $( document ).ready(function() {
         event.preventDefault();
         console.log('add clicked')
         var newGoal = {
-            UserId : userId,
+            //UserId : userId
             goal_name: $('#goal-name-input').val().trim(),
             goal_description: $('#goal-description-input').val().trim(),
             completed : false
@@ -93,8 +93,5 @@ $( document ).ready(function() {
         });
     })
 
-    module.exports = {
-        user: userId
-    }
 });
 
