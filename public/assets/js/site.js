@@ -21,16 +21,15 @@ $( document ).ready(function() {
         event.preventDefault();
     });
 
-    var userId;
-    $.getJSON("api/user_data", function(data) {
-        // Make sure the data contains the username as expected before using it
-        if (data.hasOwnProperty('userId')) {
-            console.log(data);
-            console.log('User id: ' + data.userId);
-            userId = data.userId;
-        }
-    });
-    console.log(userId);
+    // var userId;
+    // $.getJSON("api/user_data", function(data) {
+    //     // Make sure the data contains the username as expected before using it
+    //     if (data.hasOwnProperty('userId')) {
+    //         console.log(data);
+    //         console.log('User id: ' + data.userId);
+    //         userId = data.userId;
+    //     }
+    // });
     $('#goal-submit').on('click',function(event){
         event.preventDefault();
         console.log('add clicked')
@@ -49,7 +48,7 @@ $( document ).ready(function() {
         location.reload();
         });
     })
-    $('.my-goals-list').on('click',function(event){
+    $('.fa-circle').on('click',function(event){
         event.preventDefault();
         var id = $(this).data('id');
 
@@ -62,20 +61,15 @@ $( document ).ready(function() {
             data: toggleBool
         }).then(
         function(){
-        location.reload();
+            location.reload();
         });
     })
     $('#del-completed-goals').on('click',function(event){
         event.preventDefault();
 
-        var goalsUserId = {
-            user: userId
-        }
-
         console.log('Goal deleted')
         $.ajax('/api/goals/',{
             type:'DELETE',
-            data: goalsUserId
         }).then(
         function(){
             location.reload();
@@ -89,7 +83,7 @@ $( document ).ready(function() {
             type:'DELETE',
         }).then(
         function(){
-            // location.reload();
+            location.reload();
         });
     })
 

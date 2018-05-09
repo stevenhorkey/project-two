@@ -24,9 +24,7 @@ module.exports = function (sequelize, DataTypes) {
         },
         image: {
             type: DataTypes.STRING,
-            validate: {
-                defaultValue: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
-            }
+            defaultValue: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
         }
     });
 
@@ -36,7 +34,6 @@ module.exports = function (sequelize, DataTypes) {
             onDelete: "cascade"
         })
     }
-    
 
     return User;
 };
