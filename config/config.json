@@ -4,8 +4,7 @@
     "password": "root",
     "database": "goals_db",
     "host": "localhost",
-    "dialect": "mysql",
-    "port":8889
+    "dialect": "mysql"
   },
   "test": {
     "username": "root",

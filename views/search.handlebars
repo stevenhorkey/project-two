@@ -1,7 +1,3 @@
-{{!-- {{#each users}}
-<div>{{firstName}} {{lastName}}</div>
-{{/each}} --}}
-
 <div class="outer-wrapper">
     <div class="container">
         <section class="sidebar float-left col-md-3">
@@ -28,7 +24,9 @@
             <div class="my-goals">
                 <h3 class="goal-headings">Search Results</h3>
                 <ul>
-                    {{#each search}} {{> search/search-block}} {{/each}}
+                    {{#each users}}
+                    <div>{{firstName}} {{lastName}}</div>
+                    {{/each}}
                 </ul>
             </div>
 

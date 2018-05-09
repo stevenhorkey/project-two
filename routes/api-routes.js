@@ -34,7 +34,6 @@ module.exports = function (app) {
 
 
     app.get("/search/:name", (req, res) => {
-        console.log("working ++++" + req.params.name)
         db.User.findAll({
             where: {
                 firstName: req.params.name
@@ -43,7 +42,6 @@ module.exports = function (app) {
             let hbObject = {
                 users: dbUser
             };
-            console.log(dbUser[0].id);
             res.render("search", hbObject);
         })
     })
