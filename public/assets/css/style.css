@@ -101,6 +101,17 @@ nav{
     border: 2px #0e6b58 solid;
     padding: 2px;
 }
+#image-change-icon{
+    position: absolute;
+    left: 43%;
+    top: 63px;
+    z-index: 100;
+    font-size: 40px;
+}
+.profile-pic:hover{
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
 .sidebar-list{
     list-style: none;
     padding: 0;

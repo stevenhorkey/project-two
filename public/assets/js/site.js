@@ -66,6 +66,23 @@ $(document).ready(function () {
             location.reload();
         });
     })
+    $('#profile-pic-change-submit').on('click',function(event){
+        event.preventDefault();
+        var input = $('#profile-pic-change').val().trim();
+        var changePic = {
+            image: input
+        }
+        if(input !== ''){
+            $.ajax('/api/profile', {
+                type: 'PUT',
+                data: changePic
+            }).then(
+            function(){
+                location.reload();
+            });
+        }
+        
+    })
     $('#del-completed-goals').on('click', function (event) {
         event.preventDefault();
 

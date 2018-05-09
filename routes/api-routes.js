@@ -68,6 +68,19 @@ module.exports = function (app) {
             res.json(dbGoal);
         });
     });
+    app.put("/api/profile", function (req, res) {
+
+        db.User.update(
+            req.body,
+            {
+                where: {
+                    id: req.user.id
+                }
+            }
+        ).then(function (dbUser) {
+            res.json(dbUser);
+        });
+    });
     app.delete("/api/goals", function(req, res) {
         console.log(req.user.id);
         db.Goal.destroy({
