@@ -30,19 +30,18 @@ module.exports = function (app) {
             res.render("profile", hbObject);
         });
 
-    });
-
-
-    app.get("/search/:name", (req, res) => {
-        db.User.findAll({
-            where: {
-                firstName: req.params.name
-            }
-        }).then(dbUser => {
-            let hbObject = {
-                users: dbUser
-            };
-            res.render("search", hbObject);
+        app.get("/search/:name", (req, res) => {
+            console.log("working ++++" + req.params.name)
+            db.User.findAll({
+                where: {
+                    firstName: req.params.name
+                }
+            }).then(dbUser => {
+                let hbObject = {
+                    users: dbUser
+                };
+                res.render("search", hbObject);
+            })
         })
     })
 

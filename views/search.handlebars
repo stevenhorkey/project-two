@@ -1,9 +1,15 @@
+{{!-- {{#each users}}
+<div>{{firstName}} {{lastName}}</div>
+{{/each}} --}}
 <div class="outer-wrapper">
     <div class="container">
         <section class="sidebar float-left col-md-3">
             <div class="img-wrap">
-                <img class="profile-pic" src="https://media4.s-nbcnews.com/j/newscms/2017_32/2097071/trump_mad_0d61c278f7c78f32989996b5440ebc8a.1024;768;7;70;3.jpg">
+                <img class="profile-pic" src="{{users.image}}">
             </div>
+            <br>
+            <h3>{{users.userName}}</h3>
+            <br>
             <ul class="sidebar-list">
                 <li>
                     <a href="/wall">
@@ -24,9 +30,7 @@
             <div class="my-goals">
                 <h3 class="goal-headings">Search Results</h3>
                 <ul>
-                    {{#each users}}
-                    <div>{{firstName}} {{lastName}}</div>
-                    {{/each}}
+                    {{#each users}} {{> search/search-block}} {{/each}}
                 </ul>
             </div>
 
