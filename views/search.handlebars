@@ -25,7 +25,7 @@
                 <h3 class="goal-headings">Search Results</h3>
                 <ul>
                     {{#each users}}
-                    <div>{{firstName}} {{lastName}}</div>
+                    <div data-id="{{UserId}}" class="btn btn-primary btn-search-user">{{firstName}} {{lastName}}</div>
                     {{/each}}
                 </ul>
             </div>
