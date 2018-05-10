@@ -15,7 +15,7 @@ function isLoggedIn(req, res, next) {
 
 module.exports = function (app) {
     //This handles the get request for the current users profile page
-    app.get("/profile/:id", isLoggedIn, function (req, res) {
+    app.get("/profile", isLoggedIn, function (req, res) {
         console.log(req.user);
         //sequelize function to findall of goals in database where conditions are met
         db.Goal.findAll({
@@ -58,7 +58,7 @@ module.exports = function (app) {
         })
     })
     //this function handles the users request to view a different user profile  
-    app.get("profile/:id", isLoggedIn, function (req, res) {
+    app.get("/peer/:id", isLoggedIn, function (req, res) {
         //console.log to confirm the request has been sent
         console.log("recieved request for profile/" + req.params.id);
         //sequelize function to find the one matching user based off of user id
@@ -69,11 +69,12 @@ module.exports = function (app) {
             }
         }).then(function (dbUser) {
             //hbObject is given a key value pair for the desired profile's user's data
+
             var hbObject = {
                 users: dbUser
             };
             //render the visitProfile handlebars page sending the hbObject to find
-            res.render("visitProfile", hbObject)
+            res.render("peers", hbObject);
         })
     })
     //this function handles the request to create a new goal
