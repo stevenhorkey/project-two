@@ -2,10 +2,10 @@
     <div class="container">
         <section class="sidebar float-left col-md-3">
             <div class="img-wrap">
-                <img class="profile-pic" src="{{user.image}}">
+                <img class="profile-pic" src="{{users.image}}">
             </div>
             <br>
-            <h3>{{user.userName}}</h3>
+            <h3>{{users.userName}}</h3>
             <br>
             <ul class="sidebar-list">
                 <li>
@@ -24,22 +24,3 @@
                 <li></li>
             </ul>
         </section>
-        <section class="goals float-right col-md-9">
-
-
-            <div class="my-goals">
-                <h3 class="goal-headings">Search Results</h3>
-                <ul>
-                    {{#each users}}
-                    <div data-id="{{id}}" class="btn btn-info col-md btn-search-user">{{firstName}} {{lastName}}
-                        <button class=" btn add-friend float-right">
-                            <i class="fa fa-user-plus"></i>
-                        </button>
-                    </div>
-                    {{/each}}
-                </ul>
-            </div>
-
-        </section>
-    </div>
-</div>
