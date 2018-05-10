@@ -27,7 +27,7 @@
             <div class="my-goals">
                 <h3 class="goal-headings">Current Goals</h3>
                 <ul>
-                    {{#each goals}} {{#unless completed}} {{> goals/goal-block completed=false}} {{/unless}} {{/each}}
+                    {{#each goals}} {{#unless completed}} {{> goals/goal-search completed=false}} {{/unless}} {{/each}}
                 </ul>
             </div>
             {{/unless}}
@@ -37,7 +37,7 @@
                     <h3 class="goal-headings d-inline">Completed Goals</h3>
                 </span>
                 <ul>
-                    {{#each goals}} {{#if completed}} {{> goals/goal-block completed=true}} {{/if}} {{/each}}
+                    {{#each goals}} {{#if completed}} {{> goals/goal-search completed=true}} {{/if}} {{/each}}
                 </ul>
             </div>
             {{/unless}}
