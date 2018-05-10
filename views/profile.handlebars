@@ -2,44 +2,47 @@
     <div class="container">
         <section class="sidebar float-left col-md-3">
             <div class="img-wrap">
-                <img  class="profile-pic" src="{{users.image}}" data-toggle="modal" data-target="#imageModal">
+                <img class="profile-pic" src="{{users.image}}" data-toggle="modal" data-target="#imageModal">
                 <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h2 class="modal-title" id="goal-description-title">Change Your Profile Picture</h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="goal-description" name="description">
-                                <div class="form-row">
-                                    <input type="text" class="form-control" id="profile-pic-change" placeholder="Input new profile picture link...">
-                                    <button id="profile-pic-change-submit" type="submit" class="btn btn-secondary">Submit</button>
-                                </div>
-                            </form>
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="modal-title" id="goal-description-title">Change Your Profile Picture</h2>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="goal-description" name="description">
+                                    <div class="form-row">
+                                        <input type="text" class="form-control" id="profile-pic-change" placeholder="Input new profile picture link...">
+                                        <button id="profile-pic-change-submit" type="submit" class="btn btn-secondary">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-            </div>
-            <br>
-            <h3>{{users.userName}}</h3>
-            <br>
-            <ul class="sidebar-list">
-                <li>
-                    <a href="/wall">
-                        <i class="far fa-clipboard"></i> My Wall</a>
-                </li>
-                <li>
-                    <a href="/profile">
-                        <i class="far fa-calendar-check"></i> My Goals</a>
-                </li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
+                </div>
+                <br>
+                <h3>{{users.userName}}</h3>
+                <br>
+                <ul class="sidebar-list">
+                    <li>
+                        <a href="/wall">
+                            <i class="far fa-clipboard"></i> My Wall</a>
+                    </li>
+                    <li>
+                        <a href="/profile">
+                            <i class="far fa-calendar-check"></i> My Goals</a>
+                    </li>
+                    <li>
+                        <a href="/friends">
+                            <i class="fa fa-user-astronaut"></i> My Friends</a>
+                    </li>
+                    <li></li>
+                    <li></li>
+                </ul>
         </section>
         <section class="goals float-right col-md-9">
             <form class="add-goals">
@@ -58,22 +61,17 @@
                 </ul>
             </div>
             {{/unless}}
-            <br>
-            {{#unless True}}
-                <div class="my-goals-completed">
-                    <span>
-                        <h3 class="goal-headings d-inline">Completed Goals</h3>
-                        <button id="del-completed-goals" class="btn float-right">Delete all Completed Goals</button>
-                    </span>
-                    <ul>
-                        {{#each goals}}
-                            {{#if completed}}
-                            {{> goals/goal-block completed=true}}
-                            {{/if}}
-                        {{/each}}
-                    </ul>
-                </div>
+            <br> {{#unless True}}
+            <div class="my-goals-completed">
+                <span>
+                    <h3 class="goal-headings d-inline">Completed Goals</h3>
+                    <button id="del-completed-goals" class="btn float-right">Delete all Completed Goals</button>
+                </span>
+                <ul>
+                    {{#each goals}} {{#if completed}} {{> goals/goal-block completed=true}} {{/if}} {{/each}}
+                </ul>
+            </div>
             {{/unless}}
         </section>
+        </div>
     </div>
-</div>

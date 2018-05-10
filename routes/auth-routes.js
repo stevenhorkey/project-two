@@ -17,6 +17,8 @@ module.exports = function (app) {
 
     app.get("/peer", isLoggedIn, authController.peers);
 
+    app.get("/friends", isLoggedIn, authController.friends);
+
     // app.get("*", isLoggedIn, authController.dashboard);
 
     //These signup and signin posts use passport.js file to either setup an account or log in to there account.

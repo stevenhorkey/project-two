@@ -44,3 +44,8 @@ exports.peers = function (req, res) {
 
     res.render('peers');
 }
+
+exports.friends = function (req, res) {
+
+    res.render('friends');
+}
