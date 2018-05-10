@@ -2,10 +2,8 @@
     <div class="my-goals-list">
         <span>
             {{#if completed}}
-            <i class="far fa-check-circle"> </i>{{else}}
-            <i class="far fa-circle" data-id="{{this.dataValues.id}}" data-userId="{{this.dataValues.UserId}}"></i>{{/if}}
+            <i class="far fa-check-circle"> </i>{{else}} {{/if}}
             <span class="goal-title">{{this.dataValues.goal_name}}</span>
-            <i data-id="{{this.dataValues.id}}" class="fas fa-trash-alt float-right"></i>
             <span class="goal-description float-right">
                 <i class="far fa-comment-alt" data-toggle="modal" data-target="#descriptionModal-{{this.dataValues.id}}"></i>
             </span>
