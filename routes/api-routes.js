@@ -58,14 +58,14 @@ module.exports = function (app) {
         })
     })
     //this function handles the users request to view a different user profile  
-    app.get("profile/:id", isLoggedIn, function(req, res) {
+    app.get("/profile/:id", isLoggedIn, function(req, res) {
         //console.log to confirm the request has been sent
         console.log("recieved request for profile/" + req.params.id);
         //sequelize function to find the one matching user based off of user id
         db.User.findOne({
             //this is the condition for the user
             where: {
-                id = req.params.id
+                id : req.params.id
             }
         }).then(function(dbUser){
             //hbObject is given a key value pair for the desired profile's user's data

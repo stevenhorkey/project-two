@@ -36,10 +36,5 @@ exports.logout = function (req, res) {
 }
 
 exports.search = function (req, res) {
-
-    req.session.destroy(function (err) {
-
-        res.render('search');
-
-    });
+    res.render('search');
 }
