@@ -101,6 +101,17 @@ nav{
     border: 2px #0e6b58 solid;
     padding: 2px;
 }
+#image-change-icon{
+    position: absolute;
+    left: 43%;
+    top: 63px;
+    z-index: 100;
+    font-size: 40px;
+}
+.profile-pic:hover{
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
 .sidebar-list{
     list-style: none;
     padding: 0;
@@ -230,22 +241,6 @@ nav{
     color: white;            
 }
 
-/* .input[type=text] {
-    width: 130px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: white;
-    background-image: url('searchicon.png');
-    background-position: 10px 10px; 
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
+#btn-search-user {
+    margin: 5px;
 }
-
-.input[type=text]:focus {
-    width: 100%;
-} */
-/* Wall */

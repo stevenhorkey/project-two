@@ -30,16 +30,17 @@ exports.logout = function (req, res) {
     req.session.destroy(function (err) {
         //sends user back to the signup/login page
         res.render('index');
-
     });
 
 }
 
 exports.search = function (req, res) {
 
-    req.session.destroy(function (err) {
+    res.render('search');
 
-        res.render('search');
+};
 
-    });
+exports.peers = function (req, res) {
+
+    res.render('peers');
 }

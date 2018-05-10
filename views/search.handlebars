@@ -30,7 +30,9 @@
             <div class="my-goals">
                 <h3 class="goal-headings">Search Results</h3>
                 <ul>
-                    {{#each users}} {{> search/search-block}} {{/each}}
+                    {{#each users}}
+                    <div data-id="{{id}}" class="btn btn-info col-md" id="btn-search-user">{{firstName}} {{lastName}}</div>
+                    {{/each}}
                 </ul>
             </div>
 
