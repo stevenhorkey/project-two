@@ -18,22 +18,24 @@ $(document).ready(function () {
             console.log(data);
             console.log("You Pushed the Search Button");
             //relocate them to a new page based off their search
-            window.location.replace('/search/' + searchName)
+            window.location.replace('/search/' + searchName);
         })
     });
 
     //this on click function controls the user selecting another users profile to view
-    $(".btn-search-user").on("click", function(){
+    $("#btn-search-user").on("click", function () {
         //gets id of the slected users profile to view
         var userId = $(this).data('id');
         //actual ajax get request userId is in the url for later use
-        $.ajax('/profile/' + userId, {
+        $.ajax('/peer/' + userId, {
             type: 'GET'
-        }).then(function(data){
+        }).then(function (data) {
             //alert user of success
-            console.log(data);
+            console.log(userId);
             console.log('You pressed a User Profile Button!');
         })
-    })
+    });
+
+
 
 });

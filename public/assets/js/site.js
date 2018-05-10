@@ -35,9 +35,9 @@ $(document).ready(function () {
     // });
 
     //This button click controls the goal submitting client side logic
-    $('#goal-submit').on('click',function(event){
+    $('#goal-submit').on('click', function (event) {
         event.preventDefault();
-        console.log('add clicked', userId)
+        console.log('add clicked', userId);
         //populates an object to send as a request, keys match names in the database
         var newGoal = {
             //UserId : userId
@@ -57,7 +57,7 @@ $(document).ready(function () {
             });
     })
     //This PUT request is to change the goals from incomplete to completed
-    $('.fa-circle').on('click',function(event){
+    $('.fa-circle').on('click', function (event) {
         event.preventDefault();
         //gets the id of the goal in the database
         var id = $(this).data('id');
@@ -72,12 +72,12 @@ $(document).ready(function () {
             type: 'PUT',
             data: toggleBool
         }).then(
-        function(){
-            location.reload();
-        });
+            function () {
+                location.reload();
+            });
     })
     //This button click is in charge of updating the img src url for the users profile picture
-    $('#profile-pic-change-submit').on('click',function(event){
+    $('#profile-pic-change-submit').on('click', function (event) {
         event.preventDefault();
         //gets the new url for img src
         var input = $('#profile-pic-change').val().trim();
@@ -86,18 +86,18 @@ $(document).ready(function () {
             image: input
         }
         //a flag to make sure the form has been filled out
-        if(input !== ''){
+        if (input !== '') {
             //the actual ajax call
             $.ajax('/api/profile', {
                 type: 'PUT',
                 data: changePic
             }).then(
-            function(){
-                //reload the page after request is sent
-                location.reload();
-            });
+                function () {
+                    //reload the page after request is sent
+                    location.reload();
+                });
         }
-        
+
     })
     //This on click function controls the trigger for deleting a users completed goals
     $('#del-completed-goals').on('click', function (event) {
@@ -106,8 +106,8 @@ $(document).ready(function () {
         //as req.users or is already in our database, so no extra data is being sent with the request
         console.log('Goal deleted')
         //the actual ajax call, only gives a url and a type
-        $.ajax('/api/goals/',{
-            type:'DELETE',
+        $.ajax('/api/goals/', {
+            type: 'DELETE',
         }).then(
             function () {
                 //reload page after request is sent
@@ -124,10 +124,10 @@ $(document).ready(function () {
         $.ajax('/api/goals/' + id, {
             type: 'DELETE',
         }).then(
-        function(){
-            //reload the page after reuqest has been sent
-            location.reload();
-        });
+            function () {
+                //reload the page after reuqest has been sent
+                location.reload();
+            });
     })
 
 });
