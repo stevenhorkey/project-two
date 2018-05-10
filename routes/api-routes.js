@@ -76,7 +76,7 @@ module.exports = function (app) {
                 }
             }).then(function(dbGoal) {
                 hbObject['goals'] = dbGoal;
-                console.log('hbObject is' + JSON.stringify(hbObject));
+               // console.log('hbObject is' + JSON.stringify(hbObject));
                 res.render('peers', hbObject)
             })
             //render the visitProfile handlebars page sending the hbObject to find
@@ -153,4 +153,15 @@ module.exports = function (app) {
             res.json(dbGoal);
         });
     });
+
+
+    app.post('/friends', function (req, res) {
+        var hbObject = req.body;
+        console.log(hbObject);
+        hbObject['UserId'] = req.user.id
+        db.Friend.create(hbObject).then(function(dbFriend) {
+            res.json(dbFriend);
+        })
+    })
 }
+    

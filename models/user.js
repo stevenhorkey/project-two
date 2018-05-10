@@ -33,6 +33,9 @@ module.exports = function (sequelize, DataTypes) {
         User.hasMany(models.Goal, {
             onDelete: "cascade"
         })
+        User.hasMany(models.Friend, {
+            onDelete: "cascade"
+        })
     }
 
     return User;
