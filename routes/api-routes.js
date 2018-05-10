@@ -59,6 +59,7 @@ module.exports = function (app) {
     })
     //this function handles the users request to view a different user profile  
     app.get("/peer/:id", isLoggedIn, function (req, res) {
+        var hbObject = {}
         //console.log to confirm the request has been sent
         console.log("recieved request for profile/" + req.params.id);
         //sequelize function to find the one matching user based off of user id
@@ -68,13 +69,17 @@ module.exports = function (app) {
                 id: req.params.id
             }
         }).then(function (dbUser) {
-            //hbObject is given a key value pair for the desired profile's user's data
-
-            var hbObject = {
-                users: dbUser
-            };
+            hbObject['user'] = dbUser;
+            db.Goal.findAll({
+                where: {
+                    UserId: dbUser.id
+                }
+            }).then(function(dbGoal) {
+                hbObject['goals'] = dbGoal;
+                console.log('hbObject is' + JSON.stringify(hbObject));
+                res.render('peers', hbObject)
+            })
             //render the visitProfile handlebars page sending the hbObject to find
-            res.render("peers", hbObject);
         })
     })
     //this function handles the request to create a new goal
