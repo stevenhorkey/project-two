@@ -130,5 +130,23 @@ $(document).ready(function () {
             });
     })
 
-});
+$('.fa-user-plus').on('click', function(event) {
+    event.preventDefault();
 
+    var peerId = $(this).data('id');
+    console.log(peerId);
+    console.log('clicked');
+    var addFriend = {
+        friend_id : peerId
+    }
+
+    $.ajax('/friends/', {
+        type: 'POST',
+        data: addFriend
+    }).then(
+        function () {
+            //location.reload();
+        }
+    )
+})
+})
