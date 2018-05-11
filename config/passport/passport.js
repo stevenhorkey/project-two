@@ -13,13 +13,13 @@ module.exports = function(passport, user) {
  
     {
         //'email' and 'password' are ids in the signup form
-        usernameField: 'email',
+        usernameField: 'username',
         passwordField: 'password',
         passReqToCallback: true // allows us to pass back the entire request to the callback
  
     },
 
-    function(req, email, password, done) {
+    function(req, username, password, done) {
 
         var toCaps = function(word) {
             var splitWordArray = word.split('');
@@ -38,6 +38,7 @@ module.exports = function(passport, user) {
         User.findOne({
             where: {
                 //finds user based on email
+                userName: username,
                 email: email
             }
         //This then function ensures that if there is already a matching email, the account cant be created
@@ -102,7 +103,7 @@ passport.use('local-signin', new LocalStrategy(
  
         // by default, local strategy uses username and password, we will override with email
  
-        usernameField: 'email',
+        usernameField: 'username',
  
         passwordField: 'password',
  
@@ -111,7 +112,7 @@ passport.use('local-signin', new LocalStrategy(
     },
  
  
-    function(req, email, password, done) {
+    function(req, username, password, done) {
  
         var User = user;
         
@@ -124,7 +125,7 @@ passport.use('local-signin', new LocalStrategy(
         //Sequelize function to find matching email in the Users table
         User.findOne({
             where: {
-                email: email
+                userName: username
             }
         }).then(function(user) {
  
