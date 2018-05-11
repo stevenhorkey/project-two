@@ -15,6 +15,7 @@ module.exports = function(passport, user) {
         //'email' and 'password' are ids in the signup form
         usernameField: 'username',
         passwordField: 'password',
+        //emailField: 'email',
         passReqToCallback: true // allows us to pass back the entire request to the callback
  
     },
@@ -37,9 +38,8 @@ module.exports = function(passport, user) {
         //Sequelize function
         User.findOne({
             where: {
-                //finds user based on email
-                userName: username,
-                email: email
+                //finds user based on email                userName: username,
+                userName: username
             }
         //This then function ensures that if there is already a matching email, the account cant be created
         }).then(function(user) {
@@ -49,7 +49,7 @@ module.exports = function(passport, user) {
             {
          
                 return done(null, false, {
-                    message: 'That email is already taken'
+                    message: 'That username or email is already taken'
                 });
          
             } else
@@ -61,7 +61,7 @@ module.exports = function(passport, user) {
                 var data =
          
                     {
-                        email: email,
+                        email: req.body.email,
          
                         password: userPassword,
          
