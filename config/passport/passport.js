@@ -65,9 +65,9 @@ module.exports = function(passport, user) {
          
                         password: userPassword,
          
-                        firstName: req.body.firstname,
+                        firstName: toCaps(req.body.firstname),
          
-                        lastName: req.body.lastname,
+                        lastName: toCaps(req.body.lastname),
 
                         userName: req.body.username
          
