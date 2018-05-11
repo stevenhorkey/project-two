@@ -20,15 +20,6 @@ module.exports = function(passport, user) {
     },
 
     function(req, email, password, done) {
-
-        var toCaps = function(word) {
-            var splitWordArray = word.split('');
-            var newCapsWord = splitWordArray[0].toUpperCase();
-            splitWordArray[0] = newCapsWord;
-            var finalWord =splitWordArray.join('');
-            return finalWord;
-        }
-
         var generateHash = function(password) {
             //This handles the encryption of the users password
             return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
@@ -64,9 +55,9 @@ module.exports = function(passport, user) {
          
                         password: userPassword,
          
-                        firstName: toCaps(req.body.firstname),
+                        firstName: req.body.firstname,
          
-                        lastName: toCaps(req.body.lastname),
+                        lastName: req.body.lastname,
 
                         userName: req.body.username
          

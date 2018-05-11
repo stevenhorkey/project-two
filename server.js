@@ -3,6 +3,7 @@ var app = express()
 var passport = require('passport')
 var session = require('express-session')
 var bodyParser = require('body-parser')
+var mysql2 = require('mysql2')
 // var env = require('dotenv').load()
 var exphbs = require('express-handlebars')
 var PORT = process.env.PORT || 8080;
@@ -35,7 +36,7 @@ require('./routes/auth-routes')(app);
 
 require('./config/passport/passport.js')(passport, db.User);
 
-db.sequelize.sync({}).then(function () {
+db.sequelize.sync({ force: true }).then(function () {
   app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
   });
