@@ -7,23 +7,20 @@
     "dialect": "mysql",
     "seederStorage": "json",
     "seederStoragePath": "sequelizeData.json",
-    "seederStorageTableName": "sequelize_data",
-    "port": 8889
+    "seederStorageTableName": "sequelize_data"
   },
   "test": {
     "username": "root",
     "password": "root",
     "database": "database_test",
     "host": "localhost",
-    "dialect": "mysql",
-    "port": 8889
+    "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": "root",
     "database": "database_production",
     "host": "localhost",
-    "dialect": "mysql",
-    "port": 8889
+    "dialect": "mysql"
   }
 }
