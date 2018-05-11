@@ -25,20 +25,11 @@ exports.wall = function (req, res) {
     res.render('wall');
 }
 
-exports.logout = function (req, res) {
-    //This ends the current user session which is key to authentication
-    req.session.destroy(function (err) {
-        //sends user back to the signup/login page
-        res.render('index');
-    });
-
-}
-
 exports.search = function (req, res) {
 
     res.render('search');
 
-};
+}
 
 exports.peers = function (req, res) {
 
@@ -49,3 +40,13 @@ exports.friends = function (req, res) {
 
     res.render('friends');
 }
+
+exports.logout = function (req, res) {
+    //This ends the current user session which is key to authentication
+    req.session.destroy(function (err) {
+        //sends user back to the signup/login page
+        res.render('index');
+    });
+
+}
+
