@@ -1,0 +1,17 @@
+<section class="goals float-right col-md-9">
+    <div class="my-goals">
+        <h3 class="text-white"> Discover People and Goals!</h3>
+        <br>
+        <ul>
+            {{#each users}}
+            <div data-id="{{id}}" class="btn btn-info col-md btn-search-user">
+                <img class="nav-profile-image float-left" src={{image}}>
+                <h3 class="float-left search-result-name">{{firstName}} {{lastName}}</h3>
+                <button class=" btn add-friend float-right">
+                    <i class="fa fa-user-plus"></i>
+                </button>
+            </div>
+            {{/each}}
+        </ul>
+    </div>
+</section>

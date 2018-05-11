@@ -53,13 +53,13 @@ module.exports = function (app) {
 
     }
 
-    function notLoggedIn(req, res, next) {
-        if (!req.isAuthenticated())
+    // function notLoggedIn(req, res, next) {
+    //     if (!req.isAuthenticated())
 
-            return next();
+    //         return next();
 
-        res.redirect('/profile');
-    }
+    //     res.redirect('/profile');
+    // }
 
     //This function gets the session data for the user and gets there id
     app.get('/api/user_data', function (req, res) {
