@@ -1,54 +1,30 @@
-<div class="my-profile">
-    <div class="container">
-        <section class="sidebar float-left col-md-3">
-            <div class="img-wrap">
-                <img class="profile-pic" src="{{user.image}}" data-toggle="modal" data-target="#imageModal">
-
-                <br>
-                <h3>{{user.userName}}</h3>
-                <br>
-                <ul class="sidebar-list">
-                    <li>
-                        <a href="/friends" id="addFriends" data-id = "{{user.id}}">
-                            <i class ="fa fa-user-plus btn"></i> Add Friend</a>
-                    </li>
-
-                    <li>
-                        <a href="/wall">
-                            <i class="far fa-clipboard"></i> My Wall</a>
-                    </li>
-                    <li>
-                        <a href="/profile">
-                            <i class="far fa-calendar-check"></i> My Goals</a>
-                    </li>
-                    <li>
-                        <a href="/friends">
-                            <i class="fa fa-user-astronaut"></i> My Friends</a>
-                    </li>
-                    <li></li>
-                    <li></li>
-                </ul>
-        </section>
-        <section class="goals float-right col-md-9">
-
-            {{#unless True}}
-            <div class="my-goals">
-                <h3 class="goal-headings">Current Goals</h3>
-                <ul>
-                    {{#each goals}} {{#unless completed}} {{> goals/goal-search completed=false}} {{/unless}} {{/each}}
-                </ul>
-            </div>
-            {{/unless}}
-            <br> {{#unless True}}
-            <div class="my-goals-completed">
-                <span>
-                    <h3 class="goal-headings d-inline">Completed Goals</h3>
-                </span>
-                <ul>
-                    {{#each goals}} {{#if completed}} {{> goals/goal-search completed=true}} {{/if}} {{/each}}
-                </ul>
-            </div>
-            {{/unless}}
-        </section>
-        </div>
+<section class="peer-profile-view col-md-9 float-right">
+    <div class="peer-view">
+        <h3 class="goal-headings">{{user.dataValues.userName}}</h3>
+        <h5>{{user.dataValues.firstName}} {{user.dataValues.lastName}}</h5>
+        
     </div>
+</section>
+
+
+<section class="goals float-right col-md-9">
+
+    {{#unless True}}
+    <div class="my-goals">
+        <h3 class="goal-headings">Current Goals</h3>
+        <ul>
+            {{#each goals}} {{#unless completed}} {{> goals/goal-search completed=false}} {{/unless}} {{/each}}
+        </ul>
+    </div>
+    {{/unless}}
+    <br> {{#unless True}}
+    <div class="my-goals-completed">
+        <span>
+            <h3 class="goal-headings d-inline">Completed Goals</h3>
+        </span>
+        <ul>
+            {{#each goals}} {{#if completed}} {{> goals/goal-search completed=true}} {{/if}} {{/each}}
+        </ul>
+    </div>
+    {{/unless}}
+</section>

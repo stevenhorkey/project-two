@@ -12,7 +12,7 @@
   "test": {
     "username": "root",
     "password": "root",
-    "database": "database_test",
+    "database": "goals_db",
     "host": "localhost",
     "dialect": "mysql",
     "port": 8889
@@ -20,7 +20,7 @@
   "production": {
     "username": "root",
     "password": "root",
-    "database": "database_production",
+    "database": "goals_db",
     "host": "localhost",
     "dialect": "mysql",
     "port": 8889

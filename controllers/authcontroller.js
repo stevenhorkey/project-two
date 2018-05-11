@@ -5,7 +5,7 @@ var exports = module.exports = {}
 
 exports.signup = function (req, res) {
 
-    res.render('index');
+    res.render('index', {layout:'login'});
 
 }
 

@@ -30,7 +30,7 @@ module.exports = function (app) {
                 //has all matching goals from search
                 goals: dbGoal,
                 //current session's user
-                users: req.user
+                user: req.user
             };
             //console.log for test
             console.log(hbObject.goals)
@@ -71,6 +71,7 @@ module.exports = function (app) {
             }
         }).then(function (dbUser) {
             hbObject['user'] = dbUser;
+            console.log(dbUser.dateCreated)
             db.Goal.findAll({
                 where: {
                     UserId: dbUser.id
