@@ -1,23 +1,29 @@
 {
   "development": {
     "username": "root",
-    "password": "XqW56StuR37",
-    "database": "project_two",
+    "password": "root",
+    "database": "goals_db",
     "host": "localhost",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "seederStorage": "json",
+    "seederStoragePath": "sequelizeData.json",
+    "seederStorageTableName": "sequelize_data",
+    "port": 8889
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "root",
     "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "host": "localhost",
+    "dialect": "mysql",
+    "port": 8889
   },
   "production": {
     "username": "root",
-    "password": null,
+    "password": "root",
     "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "host": "localhost",
+    "dialect": "mysql",
+    "port": 8889
   }
 }
