@@ -2,6 +2,10 @@ var db = require("../models");
 //var passport = require('passport');
 var authController = require('../controllers/authcontroller.js');
 
+//var Sequelize = require('sequelize');
+
+const Op = require('sequelize').Op;
+
 //function for authentication, allwing onky logged in users to access the site. Redirects to the signin/signup page
 function isLoggedIn(req, res, next) {
 
@@ -45,8 +49,13 @@ module.exports = function (app) {
         //sequelize function to find all users that match params
         db.User.findAll({
             where: {
-                //only finds users that have a first name of whatever name was searched
-                firstName: req.params.name
+                [Op.and] : {
+                    firstName: req.params.name,
+                    id: {
+                        [Op.ne] : req.user.id
+                    }               
+                 }
+                //only finds users that have a first name of whatever name was searched  
             }
         }).then(dbUser => {
             //provides an object to send to handlebars with the searched users data

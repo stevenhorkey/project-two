@@ -136,7 +136,7 @@ $(document).ready(function () {
             });
     })
 
-$('.fa-user-plus').on('click', function(event) {
+$('#addFriends').on('click', function(event) {
     event.preventDefault();
 
     var peerId = $(this).data('id');
