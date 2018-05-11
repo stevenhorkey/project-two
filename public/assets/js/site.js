@@ -18,6 +18,12 @@
 //executes these event listeners when the page is loaded
 $(document).ready(function () {
 
+    $('#search-input').on('keypress',function(e){
+        if (e.which == 13) {
+            $('#searchButton').click();
+            return false;    //<---- Add this line
+          }
+    })
     var userId;
 
     $('#sign-up-btn').on('click', function (event) {
@@ -130,7 +136,7 @@ $(document).ready(function () {
             });
     })
 
-$('.fa-user-plus').on('click', function(event) {
+$('#addFriends').on('click', function(event) {
     event.preventDefault();
 
     var peerId = $(this).data('id');
