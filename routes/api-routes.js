@@ -30,7 +30,7 @@ module.exports = function (app) {
                 //has all matching goals from search
                 goals: dbGoal,
                 //current session's user
-                users: req.user
+                user: req.user
             };
             //console.log for test
             console.log(hbObject.goals)
@@ -51,6 +51,7 @@ module.exports = function (app) {
         }).then(dbUser => {
             //provides an object to send to handlebars with the searched users data
             let hbObject = {
+                user: req.user,
                 users: dbUser
             };
             //load the search handlebars file and pass it the hbObject to provide a list of matched users
@@ -70,6 +71,7 @@ module.exports = function (app) {
             }
         }).then(function (dbUser) {
             hbObject['user'] = dbUser;
+            console.log(dbUser.dateCreated)
             db.Goal.findAll({
                 where: {
                     UserId: dbUser.id
