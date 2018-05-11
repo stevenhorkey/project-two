@@ -1,9 +1,9 @@
-<section class="peer-profile-view col-md-9 float-right">
-    <div class="peer-view">
-        <h3 class="goal-headings">{{user.dataValues.userName}}</h3>
-        <h5>{{user.dataValues.firstName}} {{user.dataValues.lastName}}</h5>
-        
-    </div>
+<section data-id="{{id}}" class="peer-profile-view col-md-9 btn-info col-md btn-search-user float-right">
+    <img class="nav-profile-image float-left" src={{image}}>
+    <h3 class="float-left search-result-name">{{firstName}} {{lastName}}</h3>
+    <button class=" btn add-friend float-right">
+        <i class="fa fa-user-plus"></i>
+    </button>
 </section>
 
 

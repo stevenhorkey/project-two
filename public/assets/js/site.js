@@ -18,6 +18,12 @@
 //executes these event listeners when the page is loaded
 $(document).ready(function () {
 
+    $('#search-input').on('keypress',function(e){
+        if (e.which == 13) {
+            $('#searchButton').click();
+            return false;    //<---- Add this line
+          }
+    })
     var userId;
 
     $('#sign-up-btn').on('click', function (event) {
