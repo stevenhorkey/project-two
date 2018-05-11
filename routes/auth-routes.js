@@ -11,13 +11,15 @@ module.exports = function (app) {
 
     app.get('/wall', isLoggedIn, authController.wall);
 
-    app.get('/logout', notLoggedIn, authController.logout);
+    app.get('/logout', authController.logout);
 
     app.get("/search", isLoggedIn, authController.search);
 
     app.get("/peer", isLoggedIn, authController.peers);
 
     app.get("/friends", isLoggedIn, authController.friends);
+
+    app.get("/discover", isLoggedIn, authController.discover);
 
     app.get("*", isLoggedIn, authController.dashboard);
 
