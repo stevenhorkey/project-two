@@ -5,13 +5,13 @@ var authController = require('../controllers/authcontroller.js');
 
 module.exports = function (app) {
 
-    app.get('/auth', authController.signup);
+    app.get('/auth', notLoggedIn, authController.signup);
 
     app.get('/profile', isLoggedIn, authController.dashboard);
 
     app.get('/wall', isLoggedIn, authController.wall);
 
-    app.get('/logout', authController.logout);
+    app.get('/logout', notLoggedIn, authController.logout);
 
     app.get("/search", isLoggedIn, authController.search);
 
@@ -19,7 +19,7 @@ module.exports = function (app) {
 
     app.get("/friends", isLoggedIn, authController.friends);
 
-    // app.get("*", isLoggedIn, authController.dashboard);
+    app.get("*", isLoggedIn, authController.dashboard);
 
     //These signup and signin posts use passport.js file to either setup an account or log in to there account.
 
@@ -46,8 +46,17 @@ module.exports = function (app) {
 
             return next();
 
+        res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
         res.redirect('/auth');
 
+    }
+
+    function notLoggedIn(req, res, next) {
+        if (!req.isAuthenticated())
+
+            return next();
+
+        res.redirect('/profile');
     }
 
     //This function gets the session data for the user and gets there id
