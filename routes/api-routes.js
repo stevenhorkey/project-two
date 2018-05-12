@@ -69,7 +69,7 @@ module.exports = function (app) {
     })
     //this function handles the users request to view a different user profile  
     app.get("/peer/:id", isLoggedIn, function (req, res) {
-        var hbObject = {}
+        var hbObject = {};
         //console.log to confirm the request has been sent
         console.log("recieved request for profile/" + req.params.id);
         //sequelize function to find the one matching user based off of user id
@@ -94,7 +94,33 @@ module.exports = function (app) {
             })
             //render the visitProfile handlebars page sending the hbObject to find
         })
-    })
+    });
+    app.get("/friends", isLoggedIn, function (req, res) {
+        let userId = req.user.id;
+        db.Friend.findAll({
+            where: {
+                UserId: userId
+            }
+        }).then(function (data) {
+            let followList = data.map(user => user.friend_id);
+            console.log(followList)
+            db.User.findAll({
+                where: {
+                    id: {
+                        [Op.in]: followList
+                    }
+                }
+            })
+                .then(function (dbFriend) {
+                    console.log(dbFriend);
+                    let hbObject = {
+                        users: dbFriend
+                    }
+                    res.render('friends', hbObject);
+                })
+        })
+    });
+
     //this function handles the request to create a new goal
     app.post("/api/goals", function (req, res) {
         //req.body is equal to the data we sent in the ajax call on search.js
@@ -166,8 +192,6 @@ module.exports = function (app) {
             res.json(dbGoal);
         });
     });
-
-
     app.post('/friends', function (req, res) {
         var hbObject = req.body;
         console.log(hbObject);
