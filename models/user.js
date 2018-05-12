@@ -30,10 +30,10 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-    
+
     User.associate = function (models) {
         User.hasMany(models.Goal, {
-            onDelete: "cascade"
+            onDelete: "cascade",
         })
         User.hasMany(models.Friend, {
             onDelete: "cascade"

@@ -49,12 +49,12 @@ module.exports = function (app) {
         //sequelize function to find all users that match params
         db.User.findAll({
             where: {
-                [Op.and] : {
+                [Op.and]: {
                     firstName: req.params.name,
                     id: {
-                        [Op.ne] : req.user.id
-                    }               
-                 }
+                        [Op.ne]: req.user.id
+                    }
+                }
                 //only finds users that have a first name of whatever name was searched  
             }
         }).then(dbUser => {
@@ -69,7 +69,7 @@ module.exports = function (app) {
     })
     //this function handles the users request to view a different user profile  
     app.get("/peer/:id", isLoggedIn, function (req, res) {
-        var hbObject = {}
+        var hbObject = {};
         //console.log to confirm the request has been sent
         console.log("recieved request for profile/" + req.params.id);
         //sequelize function to find the one matching user based off of user id
@@ -86,15 +86,41 @@ module.exports = function (app) {
                 where: {
                     UserId: dbUser.id
                 }
-            }).then(function(dbGoal) {
+            }).then(function (dbGoal) {
                 hbObject['goals'] = dbGoal;
                 hbObject['user'] = req.user;
-               // console.log('hbObject is' + JSON.stringify(hbObject));
+                // console.log('hbObject is' + JSON.stringify(hbObject));
                 res.render('peers', hbObject)
             })
             //render the visitProfile handlebars page sending the hbObject to find
         })
-    })
+    });
+    app.get("/friends", isLoggedIn, function (req, res) {
+        let userId = req.user.id;
+        db.Friend.findAll({
+            where: {
+                UserId: userId
+            }
+        }).then(function (data) {
+            let followList = data.map(user => user.friend_id);
+            console.log(followList)
+            db.User.findAll({
+                where: {
+                    id: {
+                        [Op.in]: followList
+                    }
+                }
+            })
+                .then(function (dbFriend) {
+                    console.log(dbFriend);
+                    let hbObject = {
+                        users: dbFriend
+                    }
+                    res.render('friends', hbObject);
+                })
+        })
+    });
+
     //this function handles the request to create a new goal
     app.post("/api/goals", function (req, res) {
         //req.body is equal to the data we sent in the ajax call on search.js
@@ -166,13 +192,11 @@ module.exports = function (app) {
             res.json(dbGoal);
         });
     });
-
-
     app.post('/friends', function (req, res) {
         var hbObject = req.body;
         console.log(hbObject);
         hbObject['UserId'] = req.user.id
-        db.Friend.create(hbObject).then(function(dbFriend) {
+        db.Friend.create(hbObject).then(function (dbFriend) {
             res.json(dbFriend);
         })
     })

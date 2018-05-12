@@ -1,24 +1,17 @@
-<section class="sidebar float-left col-md-3">
-    <div class="img-wrap">
-        <img class="profile-pic" src="{{users.image}}">
+<section class="goals float-right col-md-9">
+    <div class="my-goals">
+        <h3 class="text-white"> Following</h3>
+        <br>
+        <ul>
+            {{#each users}}
+            <div class="row">
+                <div data-id="{{id}}" class="btn col-xs-10 col-md-10 btn-search-user">
+                    <img class="nav-profile-image float-left" src={{image}}>
+                    <h3 class="float-left search-result-name">{{firstName}} {{lastName}}</h3>
+                </div>
+
+            </div>
+            {{/each}}
+        </ul>
     </div>
-    <br>
-    <h3>{{users.userName}}</h3>
-    <br>
-    <ul class="sidebar-list">
-        <li>
-            <a href="/wall">
-                <i class="far fa-clipboard"></i> My Wall</a>
-        </li>
-        <li>
-            <a href="/profile">
-                <i class="far fa-calendar-check"></i> My Goals</a>
-        </li>
-        <li>
-            <a href="/friends">
-                <i class="fa fa-user-astronaut"></i> My Friends</a>
-        </li>
-        <li></li>
-        <li></li>
-    </ul>
 </section>
