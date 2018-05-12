@@ -327,3 +327,9 @@ nav{
     border-radius: 6px;
     padding: 12px 22px;
 }
+
+.btn-search-user-in-peers {
+    margin: 5px;
+    background-color: white;
+    position: relative;
+}

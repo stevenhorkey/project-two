@@ -18,20 +18,20 @@
 //executes these event listeners when the page is loaded
 $(document).ready(function () {
 
-    $('#search-input').on('keypress',function(e){
+    $('#search-input').on('keypress', function (e) {
         if (e.which == 13) {
             $('#searchButton').click();
             return false;    //<---- Add this line
-          }
+        }
     })
-    $('.fa-search').click(function(){
-            $('#search-bar-btn').animate(
-                {'width':'15.5625em'}, 300
-            );
-    });
-    $('#close-search').click(function(){
+    $('.fa-search').click(function () {
         $('#search-bar-btn').animate(
-            {'width':0}, 300
+            { 'width': '15.5625em' }, 300
+        );
+    });
+    $('#close-search').click(function () {
+        $('#search-bar-btn').animate(
+            { 'width': 0 }, 300
         );
     });
 
@@ -145,22 +145,22 @@ $(document).ready(function () {
             });
     })
 
-$('.add-friend').on('click', function(event) {
-    event.preventDefault();
-    var peerId = $(this).data('id');
-    console.log(peerId);
-    console.log('clicked');
-    var addFriend = {
-        friend_id : peerId
-    }
-
-    $.ajax('/friends/', {
-        type: 'POST',
-        data: addFriend
-    }).then(
-        function () {
-            //location.reload();
+    $('.add-friend').on('click', function (event) {
+        event.preventDefault();
+        var peerId = $(this).data('id');
+        console.log(peerId);
+        console.log('clicked');
+        var addFriend = {
+            friend_id: peerId
         }
-    )
-})
+
+        $.ajax('/friends/', {
+            type: 'POST',
+            data: addFriend
+        }).then(
+            function () {
+                //location.reload();
+            }
+        )
+    })
 })

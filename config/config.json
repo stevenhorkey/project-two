@@ -1,13 +1,14 @@
 {
   "development": {
     "username": "root",
-   "password": "XqW56StuR37",
-   "database": "project_two",
-   "host": "localhost",
-   "dialect": "mysql",
-   "seederStorage": "json",
-   "seederStoragePath": "sequelizeData.json",
-   "seederStorageTableName": "sequelize_data"
+    "password": "root",
+    "database": "goals_db",
+    "host": "localhost",
+    "dialect": "mysql",
+    "seederStorage": "json",
+    "seederStoragePath": "sequelizeData.json",
+    "seederStorageTableName": "sequelize_data",
+    "port": 3306
   },
   "test": {
     "username": "root",
