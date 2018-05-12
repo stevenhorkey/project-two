@@ -2,6 +2,10 @@ var db = require("../models");
 //var passport = require('passport');
 var authController = require('../controllers/authcontroller.js');
 
+//var Sequelize = require('sequelize');
+
+const Op = require('sequelize').Op;
+
 //function for authentication, allwing onky logged in users to access the site. Redirects to the signin/signup page
 function isLoggedIn(req, res, next) {
 
@@ -30,7 +34,7 @@ module.exports = function (app) {
                 //has all matching goals from search
                 goals: dbGoal,
                 //current session's user
-                users: req.user
+                user: req.user
             };
             //console.log for test
             console.log(hbObject.goals)
@@ -45,8 +49,13 @@ module.exports = function (app) {
         //sequelize function to find all users that match params
         db.User.findAll({
             where: {
-                //only finds users that have a first name of whatever name was searched
-                firstName: req.params.name
+                [Op.and]: {
+                    firstName: req.params.name,
+                    id: {
+                        [Op.ne]: req.user.id
+                    }
+                }
+                //only finds users that have a first name of whatever name was searched  
             }
         }).then(dbUser => {
             //provides an object to send to handlebars with the searched users data
@@ -69,15 +78,18 @@ module.exports = function (app) {
             where: {
                 id: req.params.id
             }
+
         }).then(function (dbUser) {
-            hbObject['user'] = dbUser;
+            hbObject['users'] = dbUser;
+            console.log(dbUser.dateCreated)
             db.Goal.findAll({
                 where: {
                     UserId: dbUser.id
                 }
-            }).then(function(dbGoal) {
+            }).then(function (dbGoal) {
                 hbObject['goals'] = dbGoal;
-               // console.log('hbObject is' + JSON.stringify(hbObject));
+                hbObject['user'] = req.user;
+                // console.log('hbObject is' + JSON.stringify(hbObject));
                 res.render('peers', hbObject)
             })
             //render the visitProfile handlebars page sending the hbObject to find
@@ -160,9 +172,8 @@ module.exports = function (app) {
         var hbObject = req.body;
         console.log(hbObject);
         hbObject['UserId'] = req.user.id
-        db.Friend.create(hbObject).then(function(dbFriend) {
+        db.Friend.create(hbObject).then(function (dbFriend) {
             res.json(dbFriend);
         })
     })
 }
-    

@@ -8,22 +8,26 @@
     "seederStorage": "json",
     "seederStoragePath": "sequelizeData.json",
     "seederStorageTableName": "sequelize_data",
-    "port": 8889
+    "port": 3306
   },
   "test": {
     "username": "root",
     "password": "root",
-    "database": "database_test",
+    "database": "goals_db",
     "host": "localhost",
     "dialect": "mysql",
-    "port": 8889
+    "port": 3306
   },
   "production": {
     "username": "root",
     "password": "root",
-    "database": "database_production",
+    "database": "goals_db",
     "host": "localhost",
     "dialect": "mysql",
-    "port": 8889
+    "port": 3306
+  },
+  "production": {
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
   }
 }

@@ -30,6 +30,9 @@ nav{
     color: white;
     /* background-color: #157EFB;        */
 }
+.navbar-brand{
+    margin-right: 100px;
+}
 .profile-drop{
     list-style: none;
 }
@@ -52,15 +55,20 @@ nav{
     position: absolute;
     right: -16px;
     left: auto;
-    top:46px;
+    top:63px;
     border-radius: 0 0 .25rem .25rem;
 }
 #nav-profile-image{
-    width: 50px;
+    width: 20px;
     border-radius: 50%;
     margin: 0 10px;
     border: 1px solid #0e6b58;
 }
+@media (min-width: 768px) and (max-width: 992px) {
+    .collapse {
+        display: none !important;
+    }
+ }
 /* Font-Awesome Icons */
 .fas{
     margin: 0 8px;
@@ -100,6 +108,13 @@ nav{
     border-radius: 50%;
     border: 2px #0e6b58 solid;
     padding: 2px;
+}
+#profile-pic-change-submit{
+    position: relative;
+    top: -38px;
+    left: 84%;
+    height: 38px;
+    border-radius: 0 4px 4px 0;
 }
 #image-change-icon{
     position: absolute;
@@ -175,9 +190,7 @@ nav{
 .goal-headings{
     color: white;
 }
-.my-goals>ul{
-    /* padding: 6px; */
-}
+
 .my-goals-list{
     background-color: white;
     border-radius: 6px;
@@ -206,6 +219,10 @@ nav{
     font-size: 24px;
     margin-right: 5px;
 }
+.fa-search{
+    position: relative;
+    top: 3px
+}
 .fa-trash-alt{
     position: relative;
     top: 4px;
@@ -214,21 +231,38 @@ nav{
 .fa-trash-alt:hover{
     color:red;
 }
-
+/* Search */
+.full-search>*{
+    display: inline;
+}
 #searchButton {
     position: relative;
-    left: -83px;
+    left: -81px;
     border-radius: 0 4px 4px 0;
+    border: none;
+    height: 30px;
+    line-height: 1px;
+    width: fit-content;
 }
 
 #search-input {
     border-color: #1e7563;
+    height: 30px;
+    padding: 5px;
+    width: 250px;
 }
 
 #searchButton:hover {
     background-color:  #1e7563;
 }
-
+.search-results{
+    position: relative;
+    top: 50px;
+    background-color: #1ab394;
+    border-radius: 6px;
+    padding: 10px 20px 1px;
+    font-family: 'Ubuntu', sans-serif; 
+}
 .btn-outline-success {
     color: #1e7563;
     background-color: transparent;
@@ -243,4 +277,59 @@ nav{
 
 .btn-search-user {
     margin: 5px;
+    background-color: white;
+    position: relative;
+}
+.btn-search-user:hover {
+    transform: scale(1.02);
+    background-color: white !important;
+}
+.nav-profile-image{
+    width: 90px;
+    border-radius: 50%;
+    margin: 0 10px;
+    border: 1px solid #0e6b58;
+}
+.search-result-name{
+    color: black;
+    position: absolute;
+    top: 33%;
+    left: 21%;
+    
+}
+.add-friend{
+    border: solid black 3px;
+    position: absolute;
+    top: 23%;
+    /* right: 30px; */
+}
+.add-friend:hover{
+    background-color: #1ab394;
+}
+.fa-user-plus{
+    
+    font-size: 40px;
+}
+
+@media screen and (max-width:991px){
+    .fa-search{
+        display: none;
+    }
+}
+/* Other User's profile */
+.peers-headings{
+    color: black;
+}
+.peer-view{
+    position: relative;
+    top: 20px;
+    background-color: white;
+    border-radius: 6px;
+    padding: 12px 22px;
+}
+
+.btn-search-user-in-peers {
+    margin: 5px;
+    background-color: white;
+    position: relative;
 }

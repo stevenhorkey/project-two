@@ -18,7 +18,22 @@
 //executes these event listeners when the page is loaded
 $(document).ready(function () {
 
-    var userId;
+    $('#search-input').on('keypress', function (e) {
+        if (e.which == 13) {
+            $('#searchButton').click();
+            return false;    //<---- Add this line
+        }
+    })
+    $('.fa-search').click(function () {
+        $('#search-bar-btn').animate(
+            { 'width': '15.5625em' }, 300
+        );
+    });
+    $('#close-search').click(function () {
+        $('#search-bar-btn').animate(
+            { 'width': 0 }, 300
+        );
+    });
 
     $('#sign-up-btn').on('click', function (event) {
         event.preventDefault();
@@ -37,7 +52,7 @@ $(document).ready(function () {
     //This button click controls the goal submitting client side logic
     $('#goal-submit').on('click', function (event) {
         event.preventDefault();
-        console.log('add clicked', userId);
+        console.log('add clicked');
         //populates an object to send as a request, keys match names in the database
         var newGoal = {
             //UserId : userId
@@ -130,23 +145,22 @@ $(document).ready(function () {
             });
     })
 
-$('.fa-user-plus').on('click', function(event) {
-    event.preventDefault();
-
-    var peerId = $(this).data('id');
-    console.log(peerId);
-    console.log('clicked');
-    var addFriend = {
-        friend_id : peerId
-    }
-
-    $.ajax('/friends/', {
-        type: 'POST',
-        data: addFriend
-    }).then(
-        function () {
-            //location.reload();
+    $('.add-friend').on('click', function (event) {
+        event.preventDefault();
+        var peerId = $(this).data('id');
+        console.log(peerId);
+        console.log('clicked');
+        var addFriend = {
+            friend_id: peerId
         }
-    )
-})
+
+        $.ajax('/friends/', {
+            type: 'POST',
+            data: addFriend
+        }).then(
+            function () {
+                //location.reload();
+            }
+        )
+    })
 })

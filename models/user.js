@@ -11,6 +11,7 @@ module.exports = function (sequelize, DataTypes) {
         userName: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true
         },
         password: {
             type: DataTypes.STRING,
@@ -18,13 +19,14 @@ module.exports = function (sequelize, DataTypes) {
         },
         email: {
             type: DataTypes.STRING,
+            unique: true,
             validate: {
                 isEmail: true
             }
         },
         image: {
             type: DataTypes.STRING,
-            defaultValue: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
+            defaultValue: 'https://d2x5ku95bkycr3.cloudfront.net/App_Themes/Common/images/profile/0_200.png'
         }
     });
 

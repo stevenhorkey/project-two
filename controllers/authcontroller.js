@@ -5,7 +5,7 @@ var exports = module.exports = {}
 
 exports.signup = function (req, res) {
 
-    res.render('index');
+    res.render('index', {layout:'login'});
 
 }
 
@@ -45,7 +45,7 @@ exports.logout = function (req, res) {
     //This ends the current user session which is key to authentication
     req.session.destroy(function (err) {
         //sends user back to the signup/login page
-        res.render('index');
+        res.render('index', {layout:'login'});
     });
 
 }

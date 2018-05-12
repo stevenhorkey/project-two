@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <title>GoalPost</title>
@@ -27,48 +26,83 @@
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="/profile">GoalPost</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-
-          <i class="fas fa-search"></i>
-        </li>
-        <input class="form-control mr-sm-2" id="search-input" type="search" placeholder="Search" aria-label="Search">
-        <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search">Search</button>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="far fa-plus-square"></i> Create</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <li class="nav-item dropdown profile-drop">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            <img id="nav-profile-image" src="{{users.image}}">My Profile
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Profile Settings</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/logout">Log Out</a>
-          </div>
-        </li>
-
-      </form>
-    </div>
+    <a class="navbar-brand" href="/profile"><img src="/assets/img/gp-logo.png" width="200px"></a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item full-search">
+        <i class="fas fa-search"></i>
+        <form class="search-bar-btn">
+          <input class="form-control mr-sm-2" id="search-input" type="search" placeholder="" aria-label="Search">
+          <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search">Search</button>
+        </form>
+      </li>
+      {{!-- <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="far fa-plus-square"></i> Create</a>
+      </li> --}}
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <li class="nav-item dropdown profile-drop">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <img id="nav-profile-image" src="{{user.image}}">{{user.firstName}} {{user.lastName}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/profile">My Profile</a>
+          <a class="dropdown-item" href="#">Profile Settings</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/logout">Log Out</a>
+        </div>
+      </li>
+    </form>
   </nav>
-  {{{ body }}}
-</body>
+  <div class="outer-wrapper">
+    <div class="container">
+      <section class="sidebar float-left col-md-3">
+          <div class="img-wrap">
+              <img class="profile-pic" src="{{user.image}}" data-toggle="modal" data-target="#imageModal">
+              <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h2 class="modal-title" id="goal-description-title">Change Your Profile Picture</h2>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                          </div>
+                          <div class="modal-body">
+                              <form id="goal-description" name="description">
+                                  <div class="form-row">
+                                      <input type="text" class="form-control" id="profile-pic-change" placeholder="Input new profile picture link...">
+                                      <button id="profile-pic-change-submit" type="submit" class="btn btn-secondary">Submit</button>
+                                  </div>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
 
+              </div>
+              <br>
+              <h4>{{user.userName}}</h4>
+              <br>
+              <ul class="sidebar-list">
+                  <li>
+                      <a href="/wall">
+                          <i class="far fa-clipboard"></i> My Wall</a>
+                  </li>
+                  <li>
+                      <a href="/profile">
+                          <i class="far fa-calendar-check"></i> My Goals</a>
+                  </li>
+                  <li>
+                      <a href="/friends">
+                          <i class="fa fa-user-astronaut"></i> My Friends</a>
+                  </li>
+                  <li></li>
+                  <li></li>
+              </ul>
+      </section>
+      {{{ body }}}
+    </div>
+  </div>
+</body>
 </html>
