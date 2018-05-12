@@ -12,7 +12,6 @@ var pass = generateHash('pass');
 
 module.exports = {
   up: function (queryInterface, Sequelize) {
-
     return queryInterface.bulkInsert('Users', [{
       firstName: 'Chris',
       lastName: 'Helms',
@@ -20,7 +19,7 @@ module.exports = {
       password: pass,
       userName: 'chris123',
       createdAt: new Date(),
-      updatedAt: new Date()
+      updatedAt: new Date(),
     }, {
       firstName: 'Steve',
       lastName: 'Ricky',
@@ -92,7 +91,7 @@ module.exports = {
       password: pass,
       userName: 'greg123',
       createdAt: new Date(),
-      updatedAt: new Date(),
+      updatedAt: new Date()
     },
     ]);
 

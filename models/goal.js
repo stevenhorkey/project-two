@@ -4,14 +4,14 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.TEXT,
             allowNull: false,
             validate: {
-                len: [1,140]
+                len: [1, 140]
             }
         },
         goal_description: {
             type: DataTypes.TEXT,
             allowNull: true,
             validate: {
-                len: [0,240]
+                len: [0, 240]
             }
         },
         completed: {
@@ -23,7 +23,7 @@ module.exports = function (sequelize, DataTypes) {
     Goal.associate = function (models) {
         Goal.belongsTo(models.User, {
             foreignKey: {
-                allowNull: false
+                allowNull: false,
             }
         });
     };
