@@ -49,12 +49,12 @@ module.exports = function (app) {
         //sequelize function to find all users that match params
         db.User.findAll({
             where: {
-                [Op.and] : {
+                [Op.and]: {
                     firstName: req.params.name,
                     id: {
-                        [Op.ne] : req.user.id
-                    }               
-                 }
+                        [Op.ne]: req.user.id
+                    }
+                }
                 //only finds users that have a first name of whatever name was searched  
             }
         }).then(dbUser => {
@@ -78,16 +78,18 @@ module.exports = function (app) {
             where: {
                 id: req.params.id
             }
+
         }).then(function (dbUser) {
-            hbObject['user'] = dbUser;
+            hbObject['users'] = dbUser;
             console.log(dbUser.dateCreated)
             db.Goal.findAll({
                 where: {
                     UserId: dbUser.id
                 }
-            }).then(function(dbGoal) {
+            }).then(function (dbGoal) {
                 hbObject['goals'] = dbGoal;
-               // console.log('hbObject is' + JSON.stringify(hbObject));
+                hbObject['user'] = req.user;
+                // console.log('hbObject is' + JSON.stringify(hbObject));
                 res.render('peers', hbObject)
             })
             //render the visitProfile handlebars page sending the hbObject to find
@@ -170,9 +172,8 @@ module.exports = function (app) {
         var hbObject = req.body;
         console.log(hbObject);
         hbObject['UserId'] = req.user.id
-        db.Friend.create(hbObject).then(function(dbFriend) {
+        db.Friend.create(hbObject).then(function (dbFriend) {
             res.json(dbFriend);
         })
     })
 }
-    

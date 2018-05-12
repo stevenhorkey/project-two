@@ -332,7 +332,7 @@ nav{
     border: solid black 3px;
     position: absolute;
     top: 23%;
-    right: 30px;
+    /* right: 30px; */
 }
 .add-friend:hover{
     background-color: #1ab394;
@@ -367,9 +367,6 @@ nav{
     padding: 12px 22px;
 }
 
-
-
-
 /* Responsive Layouts */
 .container{
     max-width: 1140px !important;
@@ -385,9 +382,3 @@ nav{
     }
     
 }
-
-
-
-/* .sidebar{
-    display: none !important;
-} */
