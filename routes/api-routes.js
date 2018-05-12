@@ -114,7 +114,8 @@ module.exports = function (app) {
                 .then(function (dbFriend) {
                     console.log(dbFriend);
                     let hbObject = {
-                        users: dbFriend
+                        users: dbFriend,
+                        user: req.user
                     }
                     res.render('friends', hbObject);
                 })
