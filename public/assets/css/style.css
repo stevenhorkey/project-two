@@ -55,7 +55,7 @@ nav{
     position: absolute;
     right: -16px;
     left: auto;
-    top:46px;
+    top:63px;
     border-radius: 0 0 .25rem .25rem;
 }
 #nav-profile-image{
@@ -64,6 +64,11 @@ nav{
     margin: 0 10px;
     border: 1px solid #0e6b58;
 }
+@media (min-width: 768px) and (max-width: 992px) {
+    .collapse {
+        display: none !important;
+    }
+ }
 /* Font-Awesome Icons */
 .fas{
     margin: 0 8px;
@@ -227,6 +232,9 @@ nav{
     color:red;
 }
 /* Search */
+.full-search>*{
+    display: inline;
+}
 #searchButton {
     position: relative;
     left: -81px;
@@ -234,13 +242,14 @@ nav{
     border: none;
     height: 30px;
     line-height: 1px;
+    width: fit-content;
 }
 
 #search-input {
     border-color: #1e7563;
     height: 30px;
     padding: 5px;
-    width: 300px;
+    width: 250px;
 }
 
 #searchButton:hover {
@@ -300,6 +309,12 @@ nav{
 .fa-user-plus{
     
     font-size: 40px;
+}
+
+@media screen and (max-width:991px){
+    .fa-search{
+        display: none;
+    }
 }
 /* Other User's profile */
 .peers-headings{

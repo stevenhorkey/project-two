@@ -24,7 +24,16 @@ $(document).ready(function () {
             return false;    //<---- Add this line
           }
     })
-    var userId;
+    $('.fa-search').click(function(){
+            $('#search-bar-btn').animate(
+                {'width':'15.5625em'}, 300
+            );
+    });
+    $('#close-search').click(function(){
+        $('#search-bar-btn').animate(
+            {'width':0}, 300
+        );
+    });
 
     $('#sign-up-btn').on('click', function (event) {
         event.preventDefault();
@@ -43,7 +52,7 @@ $(document).ready(function () {
     //This button click controls the goal submitting client side logic
     $('#goal-submit').on('click', function (event) {
         event.preventDefault();
-        console.log('add clicked', userId);
+        console.log('add clicked');
         //populates an object to send as a request, keys match names in the database
         var newGoal = {
             //UserId : userId

@@ -1,9 +1,11 @@
 <section data-id="{{id}}" class="peer-profile-view col-md-9 btn-info col-md btn-search-user float-right">
-    <img class="nav-profile-image float-left" src={{image}}>
-    <h3 class="float-left search-result-name">{{firstName}} {{lastName}}</h3>
-    <button class=" btn add-friend float-right">
-        <i class="fa fa-user-plus"></i>
-    </button>
+    <div class="peer-view">
+        <img class="nav-profile-image float-left" src={{user.image}}>
+        <h3 class="float-left search-result-name">{{user.firstName}} {{user.lastName}}</h3>
+        <button class=" btn add-friend float-right">
+            <i class="fa fa-user-plus"></i>
+        </button>
+    </div>
 </section>
 
 
