@@ -71,7 +71,7 @@ module.exports = function (app) {
     app.get("/peer/:id", isLoggedIn, function (req, res) {
         var hbObject = {};
         //console.log to confirm the request has been sent
-        console.log("recieved request for profile/" + req.params.id);
+        console.log("received request for profile/" + req.params.id);
         //sequelize function to find the one matching user based off of user id
         db.User.findOne({
             //this is the condition for the user
@@ -81,7 +81,6 @@ module.exports = function (app) {
 
         }).then(function (dbUser) {
             hbObject['users'] = dbUser;
-            console.log(dbUser.dateCreated)
             db.Goal.findAll({
                 where: {
                     UserId: dbUser.id
@@ -114,7 +113,8 @@ module.exports = function (app) {
                 .then(function (dbFriend) {
                     console.log(dbFriend);
                     let hbObject = {
-                        users: dbFriend
+                        users: dbFriend,
+                        user: req.user
                     }
                     res.render('friends', hbObject);
                 })
@@ -200,4 +200,40 @@ module.exports = function (app) {
             res.json(dbFriend);
         })
     })
+
+
+app.get('/wall', function (req,res) {
+    var hbObject = {};
+    db.Friend.findAll({
+        where: {
+            UserId: req.user.id
+        }
+    }).then( function (dbFriends) {
+        let fids = [];
+        for(var i =0; i<dbFriends.length; i++){
+            fids.push(dbFriends[i].dataValues.id);
+        }
+        console.log(fids);
+        db.Goal.findAll({
+            where: {
+                UserId:{
+                [Op.in]: fids
+                }
+            },
+            order: [
+                ['createdAt', 'DESC']
+            ],
+            include: [db.User]
+        }).then(function(dbGoal){
+            console.log(dbGoal);
+            hbObject = {
+                user: req.user,
+                goals: dbGoal
+             }
+             res.render('wall', hbObject)
+    })
+})
+
+})
+
 }

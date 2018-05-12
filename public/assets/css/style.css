@@ -180,6 +180,7 @@ nav{
     background-color: #1e7563;
     border: none;
     width: 15%;
+    font-size: 30px;
 }
 
 .my-goals{
@@ -310,6 +311,9 @@ nav{
     margin: 5px;
     background-color: white;
     position: relative;
+    border-radius: 50px 4px 4px 50px;
+    width: 100%;
+    border: black solid 1px;
 }
 .btn-search-user:hover {
     transform: scale(1.02);
@@ -320,6 +324,8 @@ nav{
     border-radius: 50%;
     margin: 0 10px;
     border: 1px solid #0e6b58;
+    position: relative;
+    right: 15px;
 }
 .search-result-name{
     color: black;
@@ -330,9 +336,9 @@ nav{
 }
 .add-friend{
     border: solid black 3px;
-    position: absolute;
-    top: 23%;
-    /* right: 30px; */
+    top: 23px;
+    position: relative;
+    right: 30px;
 }
 .add-friend:hover{
     background-color: #1ab394;
