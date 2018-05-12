@@ -1,14 +1,11 @@
 {
   "development": {
     "username": "root",
-   "password": "root",
-   "database": "goals_db",
-   "host": "localhost",
-   "dialect": "mysql",
-   "seederStorage": "json",
-   "seederStoragePath": "sequelizeData.json",
-   "seederStorageTableName": "sequelize_data",
-   "port": 8889
+    "password": "root",
+    "database": "goals_db",
+    "host": "localhost",
+    "dialect": "mysql",
+    "port": 3306
   },
   "test": {
     "username": "root",
@@ -16,7 +13,7 @@
     "database": "goals_db",
     "host": "localhost",
     "dialect": "mysql",
-    "port": 8889
+    "port": 3306
   },
   "production": {
     "username": "root",
@@ -24,6 +21,10 @@
     "database": "goals_db",
     "host": "localhost",
     "dialect": "mysql",
-    "port": 8889
+    "port": 3306
+  },
+  "production": {
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
   }
 }
