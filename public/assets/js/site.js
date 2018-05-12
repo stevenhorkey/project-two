@@ -154,7 +154,7 @@ $(document).ready(function () {
             friend_id: peerId
         }
 
-        $.ajax('/friends/', {
+        $.ajax('/friends', {
             type: 'POST',
             data: addFriend
         }).then(
