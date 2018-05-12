@@ -8,6 +8,8 @@ var mysql2 = require('mysql2')
 var exphbs = require('express-handlebars')
 var PORT = process.env.PORT || 8080;
 var db = require("./models");
+var path = require('path');
+var favicon = require('serve-favicon');
 
 app.use(express.static("public"));
 

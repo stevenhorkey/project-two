@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,106 +28,112 @@
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a class="navbar-brand" href="/profile"><img src="/assets/img/gp-logo.png" width="200px"></a>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item full-search">
-          <i class="fas fa-search"></i>
-          <form class="search-bar-btn">
-            <input class="form-control mr-sm-2" id="search-input" type="search" placeholder="" aria-label="Search">
-            <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search">Search</button>
-          </form>
-        </li>
-        {{!-- <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="far fa-plus-square"></i> Create</a>
-        </li> --}}
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <i id="search-m-btn" class="fas fa-search" data-toggle="modal" data-target="#searchModal"></i>
+    <a class="navbar-brand" href="/profile">
+      <img src="/assets/img/gp-logo.png" width="200px">
+    </a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item full-search">
+        <i class="fas fa-search"></i>
+        <form class="search-bar-btn">
+          <input class="form-control mr-sm-2" id="search-input" type="search" placeholder="" aria-label="Search">
+          <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search">Search</button>
+        </form>
+      </li>
+      {{!--
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="far fa-plus-square"></i> Create</a>
+      </li> --}}
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <i id="search-m-btn" class="fas fa-search" data-toggle="modal" data-target="#searchModal"></i>
 
-        <!-- Mobile search Modal -->
-        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-body">
-                <form id="goal-description" name="description">
-                    <div class="form-row">
-                        <form class="search-bar-btn">
-                          <input class="form-control mr-sm-2" id="search-input-m" type="search" placeholder="" aria-label="Search">
-                          <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search">Search</button>
-                        </form>
-                    </div>
-                </form>
-              </div>
+      <!-- Mobile search Modal -->
+      <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <form id="goal-description" name="description">
+                <div class="form-row">
+                  <form class="search-bar-btn">
+                    <input class="form-control mr-sm-2" id="search-input-m" type="search" placeholder="" aria-label="Search">
+                    <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search">Search</button>
+                  </form>
+                </div>
+              </form>
             </div>
           </div>
         </div>
-        {{!-- End of Mobile Search Modal --}}
-        <li class="nav-item dropdown profile-drop">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            <img id="nav-profile-image" src="{{user.image}}"><span id="drop-down-name">{{user.firstName}} {{user.lastName}}</span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/profile">My Profile</a>
-            {{!-- <a class="dropdown-item" href="#">Profile Settings</a> --}}
-            <a class="dropdown-item" href="/wall">My Wall</a>
-            <a class="dropdown-item" href="/profile">My Goals</a>
-            <a class="dropdown-item" href="/friends">My Friends</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/logout">Log Out</a>
-          </div>
-        </li>
-      </form>
+      </div>
+      {{!-- End of Mobile Search Modal --}}
+      <li class="nav-item dropdown profile-drop">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <img id="nav-profile-image" src="{{user.image}}">
+          <span id="drop-down-name">{{user.firstName}} {{user.lastName}}</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/profile">My Profile</a>
+          {{!--
+          <a class="dropdown-item" href="#">Profile Settings</a> --}}
+          <a class="dropdown-item" href="/wall">My Wall</a>
+          <a class="dropdown-item" href="/profile">My Goals</a>
+          <a class="dropdown-item" href="/friends">My Friends</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/logout">Log Out</a>
+        </div>
+      </li>
+    </form>
   </nav>
   <div class="outer-wrapper">
     <div class="container">
       <section class="sidebar float-left col-sm-3">
-          <div class="img-wrap">
-              <img class="profile-pic" src="{{user.image}}" data-toggle="modal" data-target="#imageModal">
-              <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                          <div class="modal-header">
-                              <h2 class="modal-title" id="goal-description-title">Change Your Profile Picture</h2>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                              </button>
-                          </div>
-                          <div class="modal-body">
-                              <form id="goal-description" name="description">
-                                  <div class="form-row">
-                                      <input type="text" class="form-control" id="profile-pic-change" placeholder="Input new profile picture link...">
-                                      <button id="profile-pic-change-submit" type="submit" class="btn btn-secondary">Submit</button>
-                                  </div>
-                              </form>
-                          </div>
-                      </div>
-                  </div>
-
+        <div class="img-wrap">
+          <img class="profile-pic" src="{{user.image}}" data-toggle="modal" data-target="#imageModal">
+          <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h2 class="modal-title" id="goal-description-title">Change Your Profile Picture</h2>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="goal-description" name="description">
+                    <div class="form-row">
+                      <input type="text" class="form-control" id="profile-pic-change" placeholder="Input new profile picture link...">
+                      <button id="profile-pic-change-submit" type="submit" class="btn btn-secondary">Submit</button>
+                    </div>
+                  </form>
+                </div>
               </div>
-              <br>
-              <h4>{{user.userName}}</h4>
-              <br>
-              <ul class="sidebar-list">
-                  <li>
-                      <a href="/wall">
-                          <i class="far fa-clipboard"></i> My Wall</a>
-                  </li>
-                  <li>
-                      <a href="/profile">
-                          <i class="far fa-calendar-check"></i> My Goals</a>
-                  </li>
-                  <li>
-                      <a href="/friends">
-                          <i class="fa fa-user-astronaut"></i> My Friends</a>
-                  </li>
-                  <li></li>
-                  <li></li>
-              </ul>
+            </div>
+
+          </div>
+          <br>
+          <h4>{{user.userName}}</h4>
+          <br>
+          <ul class="sidebar-list">
+            <li>
+              <a href="/wall">
+                <i class="far fa-clipboard"></i> My Wall</a>
+            </li>
+            <li>
+              <a href="/profile">
+                <i class="far fa-calendar-check"></i> My Goals</a>
+            </li>
+            <li>
+              <a href="/friends">
+                <i class="fa fa-user-astronaut"></i> My Friends</a>
+            </li>
+            <li></li>
+            <li></li>
+          </ul>
       </section>
       {{{ body }}}
+      </div>
     </div>
-  </div>
 </body>
+
 </html>
