@@ -71,7 +71,7 @@ module.exports = function (app) {
     app.get("/peer/:id", isLoggedIn, function (req, res) {
         var hbObject = {};
         //console.log to confirm the request has been sent
-        console.log("recieved request for profile/" + req.params.id);
+        console.log("received request for profile/" + req.params.id);
         //sequelize function to find the one matching user based off of user id
         db.User.findOne({
             //this is the condition for the user
@@ -81,7 +81,6 @@ module.exports = function (app) {
 
         }).then(function (dbUser) {
             hbObject['users'] = dbUser;
-            console.log(dbUser.dateCreated)
             db.Goal.findAll({
                 where: {
                     UserId: dbUser.id
