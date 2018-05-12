@@ -23,7 +23,7 @@ $(document).ready(function () {
     });
 
     //this on click function controls the user selecting another users profile to view
-    $(".btn-search-user").unbind("click").on("click", function () {
+    $(".peer-btn").unbind("click").on("click", function () {
         //gets id of the slected users profile to view
         var userId = $(this).data('id');
         //actual ajax get request userId is in the url for later use
