@@ -5,7 +5,7 @@ var authController = require('../controllers/authcontroller.js');
 
 module.exports = function (app) {
 
-    app.get('/auth', authController.signup);
+    app.get('/auth', notLoggedIn, authController.signup);
 
     app.get('/profile', isLoggedIn, authController.dashboard);
 
@@ -18,8 +18,6 @@ module.exports = function (app) {
     app.get("/peer", isLoggedIn, authController.peers);
 
     app.get("/friends", isLoggedIn, authController.friends);
-
-    app.get("/discover", isLoggedIn, authController.discover);
 
     app.get("*", isLoggedIn, authController.dashboard);
 
@@ -53,13 +51,13 @@ module.exports = function (app) {
 
     }
 
-    // function notLoggedIn(req, res, next) {
-    //     if (!req.isAuthenticated())
+    function notLoggedIn(req, res, next) {
+        if (!req.isAuthenticated())
 
-    //         return next();
+            return next();
 
-    //     res.redirect('/profile');
-    // }
+        res.redirect('/profile');
+    }
 
     //This function gets the session data for the user and gets there id
     app.get('/api/user_data', function (req, res) {

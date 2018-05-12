@@ -301,7 +301,7 @@ nav{
     border: solid black 3px;
     position: absolute;
     top: 23%;
-    right: 30px;
+    /* right: 30px; */
 }
 .add-friend:hover{
     background-color: #1ab394;
@@ -326,4 +326,10 @@ nav{
     background-color: white;
     border-radius: 6px;
     padding: 12px 22px;
+}
+
+.btn-search-user-in-peers {
+    margin: 5px;
+    background-color: white;
+    position: relative;
 }

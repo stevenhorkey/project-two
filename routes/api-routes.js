@@ -20,6 +20,7 @@ function isLoggedIn(req, res, next) {
 module.exports = function (app) {
     //This handles the get request for the current users profile page
     app.get("/profile", isLoggedIn, function (req, res) {
+        console.log(req.user);
         //sequelize function to findall of goals in database where conditions are met
         db.Goal.findAll({
             where: {
@@ -35,6 +36,8 @@ module.exports = function (app) {
                 //current session's user
                 user: req.user
             };
+            //console.log for test
+            console.log(hbObject.goals)
             //renders handlebars profile page and gives hbObject to file to handlebars to generate goals and user info
             res.render("profile", hbObject);
         });
@@ -42,6 +45,7 @@ module.exports = function (app) {
     });
     //this handles the get requests for searches, the :name is provided on the client side search.js file
     app.get("/search/:name", isLoggedIn, (req, res) => {
+        console.log("recieved request")
         //sequelize function to find all users that match params
         db.User.findAll({
             where: {
@@ -62,19 +66,6 @@ module.exports = function (app) {
             //load the search handlebars file and pass it the hbObject to provide a list of matched users
             res.render("search", hbObject);
         })
-    });
-
-    app.get("/discover", isLoggedIn, function (req, res) {
-        db.User.findAll({})
-            .then(function (data) {
-
-                let hbObject = {
-                    users: data
-                };
-
-
-                res.render("discover", hbObject);
-            })
     })
     //this function handles the users request to view a different user profile  
     app.get("/peer/:id", isLoggedIn, function (req, res) {
@@ -87,22 +78,23 @@ module.exports = function (app) {
             where: {
                 id: req.params.id
             }
+
         }).then(function (dbUser) {
-            hbObject['user'] = dbUser;
+            hbObject['users'] = dbUser;
+            console.log(dbUser.dateCreated)
             db.Goal.findAll({
                 where: {
                     UserId: dbUser.id
                 }
             }).then(function (dbGoal) {
                 hbObject['goals'] = dbGoal;
+                hbObject['user'] = req.user;
                 // console.log('hbObject is' + JSON.stringify(hbObject));
                 res.render('peers', hbObject)
             })
             //render the visitProfile handlebars page sending the hbObject to find
         })
     })
-
-
     //this function handles the request to create a new goal
     app.post("/api/goals", function (req, res) {
         //req.body is equal to the data we sent in the ajax call on search.js
@@ -149,6 +141,7 @@ module.exports = function (app) {
     });
     //this handles deleting all of the completer goals
     app.delete("/api/goals", function (req, res) {
+        console.log(req.user.id);
         db.Goal.destroy({
             where: {
                 //req.user.id is the current sessions user id
@@ -177,6 +170,7 @@ module.exports = function (app) {
 
     app.post('/friends', function (req, res) {
         var hbObject = req.body;
+        console.log(hbObject);
         hbObject['UserId'] = req.user.id
         db.Friend.create(hbObject).then(function (dbFriend) {
             res.json(dbFriend);
