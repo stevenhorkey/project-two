@@ -301,7 +301,7 @@ nav{
     border: solid black 3px;
     position: absolute;
     top: 23%;
-    right: 30px;
+    /* right: 30px; */
 }
 .add-friend:hover{
     background-color: #1ab394;

@@ -145,9 +145,8 @@ $(document).ready(function () {
             });
     })
 
-$('#addFriends').on('click', function(event) {
+$('.add-friend').on('click', function(event) {
     event.preventDefault();
-
     var peerId = $(this).data('id');
     console.log(peerId);
     console.log('clicked');

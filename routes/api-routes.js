@@ -78,8 +78,9 @@ module.exports = function (app) {
             where: {
                 id: req.params.id
             }
+
         }).then(function (dbUser) {
-            hbObject['user'] = dbUser;
+            //hbObject['user'] = dbUser;
             console.log(dbUser.dateCreated)
             db.Goal.findAll({
                 where: {
@@ -87,6 +88,7 @@ module.exports = function (app) {
                 }
             }).then(function(dbGoal) {
                 hbObject['goals'] = dbGoal;
+                hbObject['user'] = req.user;
                // console.log('hbObject is' + JSON.stringify(hbObject));
                 res.render('peers', hbObject)
             })
