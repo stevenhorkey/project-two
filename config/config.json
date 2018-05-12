@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "XqW56StuR37",
-    "database": "project_two",
+    "password": "root",
+    "database": "goals_db",
     "host": "localhost",
     "dialect": "mysql",
     "port": 3306
