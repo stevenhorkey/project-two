@@ -28,39 +28,38 @@
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="/profile">
-      <img src="/assets/img/gp-logo.png" width="200px">
-    </a>
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item full-search">
-        <i class="fas fa-search"></i>
-        <form class="search-bar-btn">
-          <input class="form-control mr-sm-2" id="search-input" type="search" placeholder="" aria-label="Search">
-          <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search">Search</button>
-        </form>
-      </li>
-      {{!--
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="far fa-plus-square"></i> Create</a>
-      </li> --}}
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <i id="search-m-btn" class="fas fa-search" data-toggle="modal" data-target="#searchModal"></i>
+      <a class="navbar-brand" href="/profile"><img src="/assets/img/gp-logo.png" width="200px"></a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item full-search">
+          <i class="fas fa-search"></i>
+          <form class="search-bar-btn">
+            <input class="form-control mr-sm-2" id="search-input" type="search" placeholder="" aria-label="Search">
+            <button class="searchButton search-btn-nav" class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search">Search</button>
+          </form>
+        </li>
+        {{!-- <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="far fa-plus-square"></i> Create</a>
+        </li> --}}
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <i id="search-m-btn" class="fas fa-search" data-toggle="modal" data-target="#searchModal"></i>
 
-      <!-- Mobile search Modal -->
-      <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-body">
-              <form id="goal-description" name="description">
-                <div class="form-row">
-                  <form class="search-bar-btn">
-                    <input class="form-control mr-sm-2" id="search-input-m" type="search" placeholder="" aria-label="Search">
-                    <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search">Search</button>
-                  </form>
-                </div>
-              </form>
+        <!-- Mobile search Modal -->
+        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <form id="goal-description" name="description">
+                    <div class="form-row">
+                        <form class="search-bar-btn">
+                          <input class="form-control mr-sm-2" id="search-input-m" type="search" placeholder="" aria-label="Search">
+                          <button class="searchButton search-btn-m" class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search">Search</button>
+                        </form>
+            
+                    </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
@@ -73,7 +72,7 @@
           <span id="drop-down-name">{{user.firstName}} {{user.lastName}}</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/profile">My Profile</a>
+          {{!-- <a class="dropdown-item" href="/profile">My Profile</a> --}}
           {{!--
           <a class="dropdown-item" href="#">Profile Settings</a> --}}
           <a class="dropdown-item" href="/wall">My Wall</a>
@@ -89,7 +88,10 @@
     <div class="container">
       <section class="sidebar float-left col-sm-3">
         <div class="img-wrap">
-          <img class="profile-pic" src="{{user.image}}" data-toggle="modal" data-target="#imageModal">
+          <div style="height:100%;">
+            <img class="profile-pic" src="{{user.image}}" data-toggle="modal" data-target="#imageModal">
+            {{!-- <i class="far fa-images"></i> --}}
+          </di>
           <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">

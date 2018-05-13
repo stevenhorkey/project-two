@@ -5,10 +5,18 @@
         <ul>
             {{#each users}}
             <div class="row">
-                <div data-id="{{id}}" class="btn col-xs-10 col-md-10 btn-search-user">
-                    <img class="nav-profile-image float-left" src={{image}}>
-                    <h3 class="float-left search-result-name">{{firstName}} {{lastName}}</h3>
-                </div>
+                <span class="btn-search-user">
+                    <span data-id="{{id}}" class="btn col-10 col-md-10 peer-btn">
+                        <img class="nav-profile-image float-left" src={{image}}>
+                        <h5 class="float-left search-result-name">{{firstName}} {{lastName}}</h5>
+                    </span>
+    
+                    <span class="col-2 col-md-2 float-right">
+                        <button class=" btn add-friend" data-id = "{{id}}">
+                        <i class="fa fa-user-minus"></i>
+                        </button>
+                    </span>
+                </span>
 
             </div>
             {{/each}}

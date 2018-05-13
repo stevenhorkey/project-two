@@ -3,7 +3,7 @@ $(document).ready(function () {
     //declares an empty variable
     let searchName;
     //this on click function controls the search bar for finding other users
-    $("#searchButton").on("click", e => {
+    $(".searchButton").on("click", e => {
         //prevents page from loading on submit
         e.preventDefault();
         //gets the user-inputted search and assigns it to a variable
@@ -11,15 +11,17 @@ $(document).ready(function () {
         //console.logs for testing
         console.log(searchName);
         //actual ajax get request. searchname is included in url for later use
-        $.ajax('/search/' + searchName, {
-            type: 'GET'
-        }).then(function (data) {
-            //alert user of success
-            console.log(data);
-            console.log("You Pushed the Search Button");
-            //relocate them to a new page based off their search
-            window.location.replace('/search/' + searchName);
-        })
+        if(searchName !== ''){
+            $.ajax('/search/' + searchName, {
+                type: 'GET'
+            }).then(function (data) {
+                //alert user of success
+                console.log(data);
+                console.log("You Pushed the Search Button");
+                //relocate them to a new page based off their search
+                window.location.replace('/search/' + searchName);
+            })
+        }
     });
 
     //this on click function controls the user selecting another users profile to view
