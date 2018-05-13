@@ -322,30 +322,29 @@ nav{
 .nav-profile-image{
     width: 90px;
     border-radius: 50%;
-    margin: 0 10px;
+    margin: 0 0 0 10px;
     border: 1px solid #0e6b58;
     position: relative;
     right: 15px;
 }
 .search-result-name{
     color: black;
-    position: absolute;
-    top: 33%;
-    left: 21%;
-    
+    position: relative;
+    top: 33px;
 }
 .add-friend{
     border: solid black 3px;
-    top: 23px;
+    top: 30px;
     position: relative;
     right: 30px;
+    width: 55px;
 }
 .add-friend:hover{
     background-color: #1ab394;
 }
 .fa-user-plus{
     
-    font-size: 40px;
+    font-size: 24px;
 }
 
 @media screen and (max-width:991px){
