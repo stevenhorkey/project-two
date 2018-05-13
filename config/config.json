@@ -5,7 +5,7 @@
     "database": "goals_db",
     "host": "localhost",
     "dialect": "mysql",
-    "port": 8889
+    "port": 3306
   },
   "test": {
     "username": "root",
@@ -16,15 +16,7 @@
     "port": 3306
   },
   "production": {
-    "username": "root",
-    "password": "root",
-    "database": "goals_db",
-    "host": "localhost",
-    "dialect": "mysql",
-    "port": 3306
-  },
-  "production": {
-    "use_env_variable": "JAWSDB_URL",
+    "use_env_variable": "JAWS_URL",
     "dialect": "mysql"
   }
 }

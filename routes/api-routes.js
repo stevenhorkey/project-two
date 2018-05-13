@@ -113,7 +113,8 @@ module.exports = function (app) {
                 .then(function (dbFriend) {
                     console.log(dbFriend);
                     let hbObject = {
-                        users: dbFriend
+                        users: dbFriend,
+                        user: req.user
                     }
                     res.render('friends', hbObject);
                 })
@@ -199,4 +200,40 @@ module.exports = function (app) {
             res.json(dbFriend);
         })
     })
+
+
+app.get('/wall', function (req,res) {
+    var hbObject = {};
+    db.Friend.findAll({
+        where: {
+            UserId: req.user.id
+        }
+    }).then( function (dbFriends) {
+        let fids = [];
+        for(var i =0; i<dbFriends.length; i++){
+            fids.push(dbFriends[i].dataValues.id);
+        }
+        console.log(fids);
+        db.Goal.findAll({
+            where: {
+                UserId:{
+                [Op.in]: fids
+                }
+            },
+            order: [
+                ['createdAt', 'DESC']
+            ],
+            include: [db.User]
+        }).then(function(dbGoal){
+            console.log(dbGoal);
+            hbObject = {
+                user: req.user,
+                goals: dbGoal
+             }
+             res.render('wall', hbObject)
+    })
+})
+
+})
+
 }

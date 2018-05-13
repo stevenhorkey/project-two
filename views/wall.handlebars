@@ -1,21 +1,7 @@
-<section>
-    {{#unless True}}
-        <div class="my-goals">
-            <h4 class="goal-headings">Current Goals</h4>
-            <ul>
-                {{#each goals}} {{#unless completed}} {{> goals/goal-block completed=false}} {{/unless}} {{/each}}
-            </ul>
-        </div>
-        {{/unless}}
-        <br> {{#unless True}}
-        <div class="my-goals-completed">
-            <span>
-                <h4 class="goal-headings d-inline">Completed Goals</h4>
-                {{!-- <button id="del-completed-goals" class="btn float-right"><i id="del-completed-trash" class="fas fa-trash-alt float-right"></i></button> --}}
-            </span>
-            <ul>
-                {{#each goals}} {{#if completed}} {{> goals/goal-block completed=true}} {{/if}} {{/each}}
-            </ul>
-        </div>
-    {{/unless}}
+<section class="col-md-9 float-right">
+{{#each goals}}
+
+{{> goals/goal-wall}}
+
+{{/each}}
 </section>
