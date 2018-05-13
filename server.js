@@ -10,6 +10,9 @@ var PORT = process.env.PORT || 8080;
 var db = require("./models");
 var path = require('path');
 var favicon = require('serve-favicon');
+var env = "secret";
+var config = require(__dirname + "/config/config.json")[env];
+console.log(config.use_secret);
 
 app.use(express.static("public"));
 
@@ -18,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(session({
-  secret: 'keyboard cat',
+  secret: config.use_secret,
   resave: true,
   saveUninitialized: true
 })); // session secret
