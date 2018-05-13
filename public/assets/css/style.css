@@ -122,10 +122,19 @@ nav{
     border: 2px #0e6b58 solid;
     padding: 2px;
 }
+.fa-images{
+    position: absolute;
+    left: 40%;
+    top: 65px;
+    font-size: 40px;
+    color: white;
+}
 #profile-pic-change-submit{
     position: relative;
     top: -38px;
     left: 84%;
+    background-color: #1ab394;
+    border: 1px #0e6b58 solid;    
     height: 38px;
     border-radius: 0 4px 4px 0;
 }
