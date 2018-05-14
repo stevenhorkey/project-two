@@ -202,11 +202,17 @@ module.exports = function (app) {
     })
 
 
-app.get('/wall', function (req,res) {
+app.get('/wall', isLoggedIn, function (req,res) {
+    var id;
+    if(req.user == undefined){
+        id = 0
+    }else{
+        id = req.user.id
+    }
     var hbObject = {};
     db.Friend.findAll({
         where: {
-            UserId: req.user.id
+            UserId: id
         }
     }).then( function (dbFriends) {
         let fids = [];
