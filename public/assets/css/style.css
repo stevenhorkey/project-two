@@ -6,6 +6,8 @@
 }
 html{
     min-width: 380px;
+    position: relative;
+    min-height: 100%;
 }
 body{
     min-height: 100%;
@@ -22,6 +24,9 @@ h5{
 a{
     color: #1ab394;
 }
+a:hover{
+    color: #1e7563;
+}
 ul{
     list-style: none;
     padding: 0;
@@ -31,8 +36,17 @@ ul{
     background-color: #1ab394 !important;
     border: #1ab394 solid 1px;
 }
+[type=submit]:hover{
+    background-color: #0e6b58 !important;
+}
+a.bg-primary:focus, a.bg-primary:hover,input.bg-primary:hover button.bg-primary:focus, button.bg-primary:hover {
+    background-color: #0e6b58 !important;
+    border: #0e6b58 solid 1px;
+    
+}
 .navbar{
     padding: 0 !important;
+    padding: .5rem 4rem;
 }
 nav{
     font-family: 'Ubuntu', sans-serif;  
@@ -42,9 +56,6 @@ nav{
 .profile-drop{
     list-style: none;
     margin: 0 20px;
-}
-.navbar{
-    padding: .5rem 4rem;
 }
 .navbar-dark .navbar-nav .nav-link{
     color: rgba(255, 255, 255, 0.8);
@@ -89,7 +100,7 @@ nav{
 /* Login Page */
 
 .login{
-    height: 100vh;
+    min-height: 100vh;
     background-color: #E9EBEE;
 }
 .login-title{
@@ -125,18 +136,20 @@ nav{
 .fa-images{
     position: absolute;
     left: 40%;
-    top: 65px;
-    font-size: 40px;
+    top: 70px;
+    font-size: 3vw;
     color: white;
+    display: none;
 }
 #profile-pic-change-submit{
-    position: relative;
+    /* position: relative; */
     top: -38px;
     left: 84%;
     background-color: #1ab394;
-    border: 1px #0e6b58 solid;    
+    border: none;    
     height: 38px;
-    border-radius: 0 4px 4px 0;
+    margin: 10px 0;
+    /* border-radius: 0 4px 4px 0; */
 }
 #image-change-icon{
     position: absolute;
@@ -286,7 +299,7 @@ nav{
     top: 17px;
 }
 
-#search-input {
+#search-input-nav {
     border-color: #1e7563;
     height: 30px;
     padding: 5px;
@@ -357,7 +370,7 @@ nav{
     border: solid black 3px;
     top: 30px;
     position: relative;
-    right: 30px;
+    /* right: 30px; */
     width: 55px;
 }
 .add-friend:hover{
@@ -381,6 +394,11 @@ nav{
         display: none;
     }
 }
+@media screen and (max-width:576px){
+    .add-friend{
+        right: 30px;
+    }
+}
 /* Other User's profile */
 .peers-headings{
     color: black;
@@ -402,10 +420,31 @@ nav{
     .sidebar{
         left: 0px;
     }
+    
+}
+@media screen and (min-width: 1200px){
+    .fa-images{
+        font-size: 40px;
+    }
+    
 }
 @media only screen and (max-width: 767px){
     .sidebar{
         display: none;
     }
     
+}
+/* Footer */
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: fit-content;
+    background-color: #1ab394;
+    color: white;
+    padding: 20px 0 10px 0;
+    font-family: 'Ubuntu',sans-serif;
+}
+.footer-links{
+    color: white
 }

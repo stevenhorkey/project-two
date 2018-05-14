@@ -1,15 +1,17 @@
-<section data-id="{{id}}" class="peer-profile-view col-md-8 col-md btn-search-user-in-peers float-right">
+<section data-id="{{id}}" class="peer-profile-view col-md-9 col-md btn-search-user-in-peers float-right">
     <div class="peer-view">
         <img class="nav-profile-image float-left" src={{users.image}}>
-        <h3 class="float-left search-result-name">{{users.firstName}} {{users.lastName}}</h3>
-        <button class=" btn add-friend float-right offset-sm-7" data-id="{{users.id}}">
+        <h5 class="float-left search-result-name">{{users.firstName}} {{users.lastName}}</h5>
+        <span class="col-2 col-md-2 float-right">
+            <button class=" btn add-friend" data-id = "{{id}}">
             <i class="fa fa-user-plus"></i>
-        </button>
+            </button>
+        </span>
     </div>
 </section>
 
 
-<section class="goals float-right col-md-8">
+<section class="goals float-right col-md-9">
 
     {{#unless True}}
     <div class="my-goals">
