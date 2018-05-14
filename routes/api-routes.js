@@ -211,7 +211,7 @@ app.get('/wall', function (req,res) {
     }).then( function (dbFriends) {
         let fids = [];
         for(var i =0; i<dbFriends.length; i++){
-            fids.push(dbFriends[i].dataValues.id);
+            fids.push(dbFriends[i].dataValues.friend_id);
         }
         console.log(fids);
         db.Goal.findAll({
