@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "root",
+    "password": "XqW56StuR37",
+    "database": "project_two",
+    "host": "localhost",
+    "dialect": "mysql"
+    
+  },
+  "test": {
+    "username": "root",
+    "password": "root",
+    "database": "goals_db",
+    "host": "localhost",
+    "dialect": "mysql",
+    "port": 3306
+  },
+  "production": {
+    "use_env_variable": "JAWS_URL",
+    "dialect": "mysql"
+  },
+  "secret": {
+    "use_secret": "keyboard cat"
+  }
+}
