@@ -398,6 +398,9 @@ nav{
     .add-friend{
         right: 30px;
     }
+    .search-btn-m{
+        right:12px;
+    }
 }
 /* Other User's profile */
 .peers-headings{
