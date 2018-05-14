@@ -31,6 +31,9 @@ ul{
     list-style: none;
     padding: 0;
 }
+.modal-title{
+    color: black;
+}
 /* NavBar */
 .bg-primary{
     background-color: #1ab394 !important;
@@ -134,12 +137,14 @@ nav{
     padding: 2px;
 }
 .fa-images{
-    position: absolute;
-    left: 40%;
-    top: 70px;
-    font-size: 3vw;
-    color: white;
-    display: none;
+    position: relative;
+    left: 33%;
+    bottom: 40px;
+    font-size: 2vw;
+    color: black;
+    display: block;
+    visibility:hidden;
+
 }
 #profile-pic-change-submit{
     /* position: relative; */
@@ -177,14 +182,15 @@ nav{
 }
 .add-goals{
     background-color: #1ab394;
-    padding: 20px;
+    padding: 20px 20px 3px 20px;
     border-radius: 6px;
     position: relative;
     top: 20px;
     width: 100%;
 }
-#goal-name-input{
+.goal-inputs{
     border-radius: 4px 4px 0 0;
+    width: 85%;
 }
 #goal-description-input{
     border-radius: 0 0 4px 4px;    
@@ -233,10 +239,15 @@ nav{
     border-radius: 6px;
     padding: 8px 10px;
     margin: 10px 0;
+    -webkit-transition : all ease-in-out 1ms !important;
+    -moz-transition : all ease-in-out 1ms !important;
+    -o-transition : all ease-in-out 1ms !important;
+    transition : all ease-in-out 1ms !important; 
 }
 .my-goals-list:hover{
     transform: scale(1.02);
     color: #1ab394;
+    
 }
 .goal-title{
     font-weight: bold;
@@ -347,7 +358,7 @@ nav{
     position: relative;
     border-radius: 50px 4px 4px 50px;
     width: 100%;
-    border: black solid 1px;
+    border: #0e6b58 solid 1px;
 }
 .btn-search-user:hover {
     transform: scale(1.02);
@@ -427,7 +438,7 @@ nav{
 }
 @media screen and (min-width: 1200px){
     .fa-images{
-        font-size: 40px;
+        font-size: 25px;
     }
     
 }

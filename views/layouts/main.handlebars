@@ -49,6 +49,12 @@
         <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-black" id="modal-title">Searching Better Every Day...</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
               <div class="modal-body">
                 <form id="goal-description" name="description">
                     <div class="form-row">
@@ -91,11 +97,9 @@
         <div class="img-wrap">
           <div style="height:100%;">
             <img class="profile-pic" src="{{user.image}}" data-toggle="modal" data-target="#imageModal">
-            {{!-- <i class="far fa-images"></i> --}}
+            <i class="far fa-images"></i>
           </div>
-          
         </div>
-          <br>
           <h4>{{user.userName}}</h4>
           <br>
           <ul class="sidebar-list">

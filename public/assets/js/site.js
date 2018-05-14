@@ -26,11 +26,11 @@ $(document).ready(function () {
 
     $(".profile-pic").hover(
         function() {
-          $('.fa-images').show('fast');
+          $('.fa-images').css("visibility","visible");
         }, function() {
-          $('.fa-images').hide('fast');
+          $('.fa-images').css("visibility","hidden");
         }
-      );
+    );
 
     //This button click controls the goal submitting client side logic
     $('#goal-submit').on('click', function (event) {
