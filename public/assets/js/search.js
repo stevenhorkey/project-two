@@ -3,11 +3,43 @@ $(document).ready(function () {
     //declares an empty variable
     let searchName;
     //this on click function controls the search bar for finding other users
-    $(".searchButton").on("click", e => {
+    $('#search-input-nav').on('keypress', function (e) {
+        if (e.which == 13) {
+            $('.search-btn-nav').click();
+            return false;    //<---- Add this line
+        }
+    })
+    $('#search-input-m').on('keypress', function (e) {
+        if (e.which == 13) {
+            $('.search-btn-m').click();
+            return false;    //<---- Add this line
+        }
+    })
+    $(".search-btn-nav").on("click", e => {
         //prevents page from loading on submit
         e.preventDefault();
         //gets the user-inputted search and assigns it to a variable
-        searchName = $("#search-input").val().trim();
+        searchName = $("#search-input-nav").val().trim();
+        //console.logs for testing
+        console.log(searchName);
+        //actual ajax get request. searchname is included in url for later use
+        if(searchName !== ''){
+            $.ajax('/search/' + searchName, {
+                type: 'GET'
+            }).then(function (data) {
+                //alert user of success
+                console.log(data);
+                console.log("You Pushed the Search Button");
+                //relocate them to a new page based off their search
+                window.location.replace('/search/' + searchName);
+            })
+        }
+    });
+    $(".search-btn-m").on("click", e => {
+        //prevents page from loading on submit
+        e.preventDefault();
+        //gets the user-inputted search and assigns it to a variable
+        searchName = $("#search-input-m").val().trim();
         //console.logs for testing
         console.log(searchName);
         //actual ajax get request. searchname is included in url for later use

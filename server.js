@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(session({
-  secret: 'keyboard cat',
+  secret: 'keyboard goal',
   resave: true,
   saveUninitialized: true
 })); // session secret
