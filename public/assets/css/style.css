@@ -8,11 +8,16 @@ html{
     min-width: 380px;
     position: relative;
     min-height: 100%;
+    height: 100%;
 }
 body{
     min-height: 100%;
     background-color: #E9EBEE; 
     height: fit-content;
+    height: 100%;
+}
+.outer-wrapper{
+    height: 100%;
 }
 h1,
 h2,
@@ -54,6 +59,7 @@ a.bg-primary:focus, a.bg-primary:hover,input.bg-primary:hover button.bg-primary:
 nav{
     font-family: 'Ubuntu', sans-serif;  
     color: white;
+    z-index: 1;
     /* background-color: #157EFB;        */
 }
 .profile-drop{
@@ -104,6 +110,7 @@ nav{
 
 .login{
     min-height: 100vh;
+    height: fit-content;
     background-color: #E9EBEE;
 }
 .login-title{
@@ -120,11 +127,13 @@ nav{
     background-color: white;
     height: 100vh;
     width: 100%;
-    position: relative;
-    left: -50px;
-    padding: 20px 0;
+    position: fixed;
+    left: 50px;
+    top: 0;
+    /* z-index: -1; */
+    padding: 92px 0 0 0;
     text-align: center;
-    font-family: 'Ubuntu', sans-serif;     
+    font-family: 'Ubuntu', sans-serif;   
 }
 .img-wrap{
 
@@ -446,18 +455,18 @@ nav{
     .sidebar{
         display: none;
     }
-    
 }
 /* Footer */
 footer{
-    position: absolute;
-    bottom: 0;
+    position: relative;
+    bottom: -200px;
     width: 100%;
     height: fit-content;
     background-color: #1ab394;
     color: white;
     padding: 20px 0 10px 0;
     font-family: 'Ubuntu',sans-serif;
+    clear: both;
 }
 .footer-links{
     color: white
