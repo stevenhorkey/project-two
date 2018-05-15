@@ -458,6 +458,7 @@ footer{
     color: white;
     padding: 20px 0 10px 0;
     font-family: 'Ubuntu',sans-serif;
+    clear: both;
 }
 .footer-links{
     color: white
