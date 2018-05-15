@@ -50,6 +50,7 @@ a.bg-primary:focus, a.bg-primary:hover,input.bg-primary:hover button.bg-primary:
 .navbar{
     padding: 0 !important;
     padding: .5rem 4rem;
+    z-index: 1;
 }
 nav{
     font-family: 'Ubuntu', sans-serif;  
@@ -122,13 +123,12 @@ nav{
     width: 100%;
     position: fixed;
     left: 50px;
+    top: 0;
     padding: 92px 0 0 0;
     text-align: center;
     font-family: 'Ubuntu', sans-serif;     
 }
-.img-wrap{
 
-}
 .profile-pic{
     width: 80%;
     margin: 0 auto 20px auto;
