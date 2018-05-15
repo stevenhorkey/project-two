@@ -5,7 +5,12 @@
     "database": "goals_db",
     "host": "localhost",
     "dialect": "mysql",
+<<<<<<< HEAD
     "port": 3306
+=======
+    "port":8889
+    
+>>>>>>> dd6859ae20f0e0e37a45250ae133754a84b7f209
   },
   "test": {
     "username": "root",
@@ -26,5 +31,8 @@
   "production": {
     "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
+  },
+  "secret": {
+    "use_secret": "keyboard cat"
   }
 }

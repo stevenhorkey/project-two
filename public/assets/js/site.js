@@ -18,36 +18,19 @@
 //executes these event listeners when the page is loaded
 $(document).ready(function () {
 
-    $('#search-input').on('keypress', function (e) {
-        if (e.which == 13) {
-            $('#searchButton').click();
-            return false;    //<---- Add this line
-        }
-    })
-    $('.fa-search').click(function () {
-        $('#search-bar-btn').animate(
-            { 'width': '15.5625em' }, 300
-        );
-    });
-    $('#close-search').click(function () {
-        $('#search-bar-btn').animate(
-            { 'width': 0 }, 300
-        );
-    });
+    
 
     $('#sign-up-btn').on('click', function (event) {
         event.preventDefault();
     });
 
-    // var userId;
-    // $.getJSON("api/user_data", function(data) {
-    //     // Make sure the data contains the username as expected before using it
-    //     if (data.hasOwnProperty('userId')) {
-    //         console.log(data);
-    //         console.log('User id: ' + data.userId);
-    //         userId = data.userId;
-    //     }
-    // });
+    $(".profile-pic").hover(
+        function() {
+          $('.fa-images').css("visibility","visible");
+        }, function() {
+          $('.fa-images').css("visibility","hidden");
+        }
+    );
 
     //This button click controls the goal submitting client side logic
     $('#goal-submit').on('click', function (event) {
@@ -72,7 +55,7 @@ $(document).ready(function () {
             });
     })
     //This PUT request is to change the goals from incomplete to completed
-    $('.fa-circle').on('click', function (event) {
+    $('.incomplete-circle').on('click', function (event) {
         event.preventDefault();
         //gets the id of the goal in the database
         var id = $(this).data('id');

@@ -33,7 +33,7 @@
         <li class="nav-item full-search">
           <i class="fas fa-search"></i>
           <form class="search-bar-btn">
-            <input class="form-control mr-sm-2" id="search-input" type="search" placeholder="" aria-label="Search">
+            <input class="form-control mr-sm-2" id="search-input-nav" type="search" placeholder="" aria-label="Search">
             <button class="searchButton search-btn-nav" class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search">Search</button>
           </form>
         </li>
@@ -49,6 +49,12 @@
         <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-black" id="modal-title">Searching Better Every Day...</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
               <div class="modal-body">
                 <form id="goal-description" name="description">
                     <div class="form-row">
@@ -78,6 +84,7 @@
           <a class="dropdown-item" href="/wall">My Wall</a>
           <a class="dropdown-item" href="/profile">My Goals</a>
           <a class="dropdown-item" href="/friends">My Friends</a>
+          <a data-toggle="modal" data-target="#imageModal" class="dropdown-item" href=''>Profile Picture</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/logout">Log Out</a>
         </div>
@@ -90,30 +97,9 @@
         <div class="img-wrap">
           <div style="height:100%;">
             <img class="profile-pic" src="{{user.image}}" data-toggle="modal" data-target="#imageModal">
-            {{!-- <i class="far fa-images"></i> --}}
-          </di>
-          <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h2 class="modal-title" id="goal-description-title">Change Your Profile Picture</h2>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <form id="goal-description" name="description">
-                    <div class="form-row">
-                      <input type="text" class="form-control" id="profile-pic-change" placeholder="Input new profile picture link...">
-                      <button id="profile-pic-change-submit" type="submit" class="btn btn-secondary">Submit</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-
+            <i class="far fa-images"></i>
           </div>
-          <br>
+        </div>
           <h4>{{user.userName}}</h4>
           <br>
           <ul class="sidebar-list">
@@ -136,6 +122,33 @@
       {{{ body }}}
       </div>
     </div>
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="goal-description-title">Change Your Profile Picture</h2>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="goal-description" name="description">
+              <div class="form-row">
+                <input type="text" class="form-control" id="profile-pic-change" placeholder="Input new profile picture link...">
+                <button id="profile-pic-change-submit" type="submit" class="btn btn-secondary">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      </div>
+    <footer>
+      <div class="container">
+        <div class="row text-center">
+          <p class="mx-auto">Developed by <a class=' footer-links'>Colin Nelson</a>, <a class=' footer-links'>Patrick Marrin</a>, <a class=' footer-links'>Joey Bridges</a>, and <a class=' footer-links' href="https://stevenhorkey.com/">Steven Horkey</a></p>
+        </div>
+      </div>
+    </footer>
 </body>
 
 </html>

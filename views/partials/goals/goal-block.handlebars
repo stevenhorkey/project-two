@@ -3,7 +3,7 @@
         <span>
             {{#if completed}}
             <i class="far fa-check-circle"> </i>{{else}}
-            <i class="far fa-circle" data-id="{{this.dataValues.id}}" data-userId="{{this.dataValues.UserId}}"></i>{{/if}}
+            <i class="far fa-circle incomplete-circle" data-id="{{this.dataValues.id}}" data-userId="{{this.dataValues.UserId}}"></i>{{/if}}
             <span class="goal-title">{{this.dataValues.goal_name}}</span>
             <i data-id="{{this.dataValues.id}}" class="fas fa-trash-alt float-right"></i>
             <span class="goal-description float-right">
@@ -17,7 +17,9 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="modal-title" id="goal-description-title">{{this.dataValues.goal_name}}</h2>
+                    <h2 class="modal-title" id="goal-description-title"> {{#if this.dataValues.completed}}
+                     <i class="far fa-check-circle"> </i> {{else}}
+            <i class="far fa-circle"></i> {{/if}} {{this.dataValues.goal_name}}</h2>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

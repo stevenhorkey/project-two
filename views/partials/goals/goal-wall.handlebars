@@ -3,7 +3,7 @@
         <h3 class="goal-headings">{{this.User.firstName}} {{this.User.lastName}}</h3>
         <span>
             <div class ="my-goals-list">
-            {{#if completed}}
+            {{#if this.dataValues.completed}}
             <i class="far fa-check-circle"> </i>{{else}}
             <i class="far fa-circle" data-id="{{this.dataValues.id}}" data-userId="{{this.dataValues.UserId}}"></i>{{/if}}
             <span class="goal-title">{{this.dataValues.goal_name}}</span>
@@ -13,4 +13,4 @@
             </div>
         </span>
 </div>
-<br>
+<br>o
