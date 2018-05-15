@@ -462,6 +462,7 @@ footer{
 .footer-links{
     color: white
 }
-.modal-bottom {
+/* Modal for BS */
+.modal-backdrop{
     z-index: 0;
 }
