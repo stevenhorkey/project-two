@@ -12,5 +12,27 @@
             </span>
             </div>
         </span>
-</div>
-<br>o
+    </div>
+    <!-- Description Modal -->
+    <div class="modal fade" id="descriptionModal-{{this.dataValues.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="goal-description-title"> {{#if this.dataValues.completed}}
+                     <i class="far fa-check-circle"> </i> {{else}}
+            <i class="far fa-circle"></i> {{/if}} {{this.dataValues.goal_name}}</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            <div class="modal-body">
+                <form id="goal-description" name="description">
+                    <div class="form-row">
+                        <p>{{this.dataValues.goal_description}}</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<br>
