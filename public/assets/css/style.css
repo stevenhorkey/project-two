@@ -122,11 +122,12 @@ nav{
     height: 100vh;
     width: 100%;
     position: fixed;
-    left: 50px;
+    left: 20px;
     top: 0;
     padding: 92px 0 0 0;
     text-align: center;
-    font-family: 'Ubuntu', sans-serif;     
+    font-family: 'Ubuntu', sans-serif;
+         
 }
 
 .profile-pic{
@@ -451,7 +452,7 @@ nav{
 /* Footer */
 footer{
     position: absolute;
-    bottom: -200px;
+    bottom: -300px;
     width: 100%;
     height: fit-content;
     background-color: #1ab394;
