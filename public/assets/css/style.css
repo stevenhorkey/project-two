@@ -88,6 +88,7 @@ nav{
 }
 #nav-profile-image{
     width: 20px;
+    height: 20px;
     border-radius: 50%;
     margin: 0 10px;
     border: 1px solid #0e6b58;
@@ -128,15 +129,16 @@ nav{
     height: 100vh;
     width: 22vw;
     position: fixed;
-    left: 35px;
+    left: 5vw;
     top: 0;
-    padding: 92px 0 0 0;
+    padding: 120px 0 0 0;
     text-align: center;
     font-family: 'Ubuntu', sans-serif;  
 }
 
 .profile-pic{
-    width: 80%;
+    width: 15vw;
+    height: 15vw;
     margin: 0 auto 20px auto;
     border-radius: 50%;
     border: 2px #0e6b58 solid;
@@ -145,7 +147,7 @@ nav{
 .fa-images{
     position: relative;
     left: 33%;
-    bottom: 40px;
+    bottom: 42px;
     font-size: 2vw;
     color: black;
     display: block;
@@ -191,7 +193,7 @@ nav{
     padding: 20px 20px 3px 20px;
     border-radius: 6px;
     position: relative;
-    top: 20px;
+    top: 25px;
     width: 100%;
 }
 .goal-inputs{
@@ -372,6 +374,7 @@ nav{
 }
 .nav-profile-image{
     width: 90px;
+    height: 90px;
     border-radius: 50%;
     margin: 0 0 0 10px;
     border: 1px solid #0e6b58;
@@ -385,10 +388,11 @@ nav{
 }
 .add-friend{
     border: solid black 3px;
-    top: 30px;
+    top: 24px;
     position: relative;
-    /* right: 30px; */
+    right: -10%;
     width: 55px;
+    height: 55px;
 }
 .add-friend:hover{
     background-color: #1ab394;
@@ -424,12 +428,13 @@ nav{
     color: black;
 }
 .peer-view{
-    position: relative;
     top: 20px;
+    margin: 5px;
     background-color: white;
-    border-radius: 6px;
-    padding: 12px 22px;
-    height: 120px;
+    position: relative;
+    border-radius: 50px 4px 4px 50px;
+    width: 100%;
+    border: #0e6b58 solid 1px;
 }
 
 /* Responsive Layouts */
@@ -456,7 +461,7 @@ nav{
 /* Footer */
 footer{
     position: relative;
-    bottom: -200px;
+    bottom: -300px;
     width: 100%;
     height: fit-content;
     background-color: #1ab394;
