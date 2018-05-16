@@ -120,14 +120,22 @@ nav{
 .sidebar{
     background-color: white;
     height: 100vh;
-    width: 100%;
+    width: 22vw;
     position: fixed;
+<<<<<<< HEAD
     left: 20px;
     top: 0;
     padding: 92px 0 0 0;
     text-align: center;
     font-family: 'Ubuntu', sans-serif;
          
+=======
+    left: 35px;
+    top: 0;
+    padding: 92px 0 0 0;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;  
+>>>>>>> d0fe5e26206ff8bc3b90e073da4df2acf4e1500e
 }
 
 .profile-pic{
