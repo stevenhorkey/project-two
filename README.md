@@ -1,10 +1,10 @@
 # goalPost
 
-A goal-based social media platform that allows users to track, encourage, and connect.
+A goal-based social media platform that allows users to track, encourage, and connect. 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+If you would like to use the site, vist: scure-escarpment-15577.herokuapp.com/auth
 
 ### Prerequisites
 
@@ -16,32 +16,15 @@ Give examples
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
+To contribute:
+1) Fork or clone repo
+2) Run
 ```
-Give the example
+npm i
 ```
-
-And repeat
-
+3) Start local server with:
 ```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
+node server.js
 ```
 
 ### And coding style tests
@@ -54,34 +37,32 @@ Give an example
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Original project is deployed on Heroku. Either you must deploy on your own or request a pull request and get the original developers permission to merge and deploy
 
 ## Built With
 
-* [Passport.js](http://www.passportjs.org/) - The web framework used
-* [Sequelize](https://maven.apache.org/) - Dependency Management
-* [Node.js](http://nodejs.com/) - Used to generate RSS Feeds
-* [Handlebars.js](https://handlebarsjs.com/) - Used to generate RSS Feeds
-* [Bootstrap 4](https://getbootstrap.com/) - Used to generate RSS Feeds
-* [Express.js](https://expressjs.com/) - Used to generate RSS Feeds
+* [Passport.js](http://www.passportjs.org/) - Authentication Management
+* [Sequelize](https://www.mysql.com/) - ORM
+* [MySQL](https://maven.apache.org/) - Database Management
+* [Node.js](http://nodejs.com/) - Server Side Development
+* [Handlebars.js](https://handlebarsjs.com/) - HTML Templateing Engine
+* [Bootstrap 4](https://getbootstrap.com/) - Styling Framework
+* [Express.js](https://expressjs.com/) - Routing and API development
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Request a pull or message developers directly
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use Heroku for versioning 
 
 ## Authors
 
-* **Colin Nelson** - *Initial work*
-* **Steven Horkey** - *Initial work*
-* **Patrick Marrin** - *Initial work*
-* **Joey Bridges** - *Initial work*
-
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Colin Nelson**
+* **Steven Horkey**
+* **Patrick Marrin**
+* **Joey Bridges**
 
 ## License
 
@@ -91,4 +72,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 * Stack Overflow
 * Our instructors at UA Trilogy Full Stack Program
-* life
+* Life
