@@ -4,7 +4,7 @@ A goal-based social media platform that allows users to track, encourage, and co
 
 ## Getting Started
 
-If you would like to use the site, vist: scure-escarpment-15577.herokuapp.com/auth
+If you would like to use the site, vist: obscure-escarpment-15577.herokuapp.com/auth
 
 ### Prerequisites
 

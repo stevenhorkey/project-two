@@ -128,15 +128,18 @@ $(document).ready(function () {
             });
     })
 
+    //This button controls the on click event to add friends
     $('.add-friend').on('click', function (event) {
         event.preventDefault();
+        //peerId is the clicked users id in the users table
         var peerId = $(this).data('id');
         console.log(peerId);
         console.log('clicked');
+        //put the clicked users id in an objectr with the key value having the same name as the column name in the friends table
         var addFriend = {
             friend_id: peerId
         }
-
+        //the actual ajax request
         $.ajax('/friends', {
             type: 'POST',
             data: addFriend

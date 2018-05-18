@@ -2,19 +2,21 @@
 $(document).ready(function () {
     //declares an empty variable
     let searchName;
-    //this on click function controls the search bar for finding other users
+    //this on click function controls the search bar for finding other users if current user hits enter
     $('#search-input-nav').on('keypress', function (e) {
         if (e.which == 13) {
             $('.search-btn-nav').click();
             return false;    //<---- Add this line
         }
     })
+    //this on click is for the search modals if user hits enter
     $('#search-input-m').on('keypress', function (e) {
         if (e.which == 13) {
             $('.search-btn-m').click();
             return false;    //<---- Add this line
         }
     })
+    //this is for the search when submit button is clicked on navbar search
     $(".search-btn-nav").on("click", e => {
         //prevents page from loading on submit
         e.preventDefault();
@@ -35,6 +37,7 @@ $(document).ready(function () {
             })
         }
     });
+    //this is for the search submit button on the modal
     $(".search-btn-m").on("click", e => {
         //prevents page from loading on submit
         e.preventDefault();
