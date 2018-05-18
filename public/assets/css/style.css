@@ -8,11 +8,16 @@ html{
     min-width: 380px;
     position: relative;
     min-height: 100%;
+    height: 100%;
 }
 body{
     min-height: 100%;
     background-color: #E9EBEE; 
     height: fit-content;
+    height: 100%;
+}
+.outer-wrapper{
+    height: 100%;
 }
 h1,
 h2,
@@ -50,11 +55,11 @@ a.bg-primary:focus, a.bg-primary:hover,input.bg-primary:hover button.bg-primary:
 .navbar{
     padding: 0 !important;
     padding: .5rem 4rem;
-    z-index: 1;
 }
 nav{
     font-family: 'Ubuntu', sans-serif;  
     color: white;
+    z-index: 1;
     /* background-color: #157EFB;        */
 }
 .profile-drop{
@@ -106,6 +111,7 @@ nav{
 
 .login{
     min-height: 100vh;
+    height: fit-content;
     background-color: #E9EBEE;
 }
 .login-title{
@@ -121,14 +127,13 @@ nav{
 .sidebar{
     background-color: white;
     height: 100vh;
-    width: 100%;
+    width: 22vw;
     position: fixed;
     left: 5vw;
     top: 0;
     padding: 120px 0 0 0;
     text-align: center;
-    font-family: 'Ubuntu', sans-serif;
-         
+    font-family: 'Ubuntu', sans-serif;  
 }
 
 .profile-pic{
@@ -452,15 +457,10 @@ nav{
     .sidebar{
         display: none;
     }
-    
 }
 /* Footer */
 footer{
-<<<<<<< HEAD
-    position: absolute;
-=======
     position: relative;
->>>>>>> 0d43b322064adec6a3e34c7a44f0b98425518d63
     bottom: -300px;
     width: 100%;
     height: fit-content;
@@ -468,6 +468,7 @@ footer{
     color: white;
     padding: 20px 0 10px 0;
     font-family: 'Ubuntu',sans-serif;
+    clear: both;
 }
 .footer-links{
     color: white
