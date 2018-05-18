@@ -27,14 +27,6 @@ npm i
 node server.js
 ```
 
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
 ## Deployment
 
 Original project is deployed on Heroku. Either you must deploy on your own or request a pull request and get the original developers permission to merge and deploy
